@@ -1,4 +1,4 @@
-import { graphql, type HeadFC, type PageProps } from 'gatsby'
+import { graphql, type HeadFC, type PageProps } from 'gatsby';
 
 export default function Index({
   data: {
@@ -13,7 +13,7 @@ export default function Index({
         </div>
       ))}
     </div>
-  )
+  );
 }
 
 export const query = graphql`
@@ -26,6 +26,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export const Head: HeadFC = () => <title>Home Page</title>
+export const Head: HeadFC = () => <title>Home Page</title>;
