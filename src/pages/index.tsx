@@ -1,13 +1,31 @@
-import type { HeadFC, PageProps } from 'gatsby'
+import { graphql, type HeadFC, type PageProps } from 'gatsby'
 
-const IndexPage: React.FC<PageProps> = () => {
+export default function Index({
+  data: {
+    allContentfulBlogPost: { nodes },
+  },
+}: PageProps<Queries.IndexPageQuery>) {
   return (
-    <main>
-      <h1>Home Page</h1>
-    </main>
+    <div>
+      {nodes.map(({ title, slug, date }) => (
+        <div key={slug}>
+          {title} / {date} / {slug}
+        </div>
+      ))}
+    </div>
   )
 }
 
-export default IndexPage
+export const query = graphql`
+  query IndexPage {
+    allContentfulBlogPost {
+      nodes {
+        title
+        slug
+        date
+      }
+    }
+  }
+`
 
 export const Head: HeadFC = () => <title>Home Page</title>
