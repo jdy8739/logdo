@@ -1,5 +1,6 @@
 import { graphql, type HeadFC, type PageProps } from 'gatsby';
 import '../styles/reset.css';
+import Layout from '../components/common/Layout';
 
 export default function Index({
   data: {
@@ -7,13 +8,13 @@ export default function Index({
   },
 }: PageProps<Queries.IndexPageQuery>) {
   return (
-    <div>
+    <Layout>
       {nodes.map(({ title, slug, date }) => (
         <div key={slug}>
           {title} / {date} / {slug}
         </div>
       ))}
-    </div>
+    </Layout>
   );
 }
 

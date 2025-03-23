@@ -1,7 +1,10 @@
+import { footer } from './Footer.css';
+
 const Footer = () => {
   return (
-    <footer>
-      <div>Footer</div>
+    <footer className={footer}>
+      <div>Thank You for Visiting My Blog, Have a Good Day 😆</div>
+      <div>Copyright © 2025 logDo. All rights reserved.</div>
     </footer>
   );
 };
