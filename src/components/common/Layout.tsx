@@ -4,11 +4,11 @@ import { layout, contents } from './Layout.css';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <main className={layout}>
+    <div className={layout}>
       <Header />
-      <section className={contents}>{children}</section>
+      <main className={contents}>{children}</main>
       <Footer />
-    </main>
+    </div>
   );
 };
 
