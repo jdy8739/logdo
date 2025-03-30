@@ -16,6 +16,10 @@ export const query = graphql`
       title
       slug
       date
+      category
+      decription {
+        decription
+      }
     }
   }
 `;
