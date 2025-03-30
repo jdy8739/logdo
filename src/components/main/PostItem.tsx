@@ -1,3 +1,5 @@
+import { postArticle, postTitle } from './PostItem.css';
+
 const PostItem = ({
   title,
   date,
@@ -8,10 +10,14 @@ const PostItem = ({
   slug: string;
 }) => {
   return (
-    <article>
-      <h2>{title}</h2>
-      <p>{date}</p>
-      <p>{slug}</p>
+    <article className={postArticle}>
+      <div>
+        <h2 className={postTitle}>{title}</h2>
+      </div>
+      <div>
+        <p>{date}</p>
+        <p>{slug}</p>
+      </div>
     </article>
   );
 };
