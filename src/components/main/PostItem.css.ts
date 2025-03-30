@@ -2,6 +2,12 @@ import { style } from '@vanilla-extract/css';
 
 const postArticle = style({
   width: '320px',
+  boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+  display: 'flex',
+  flexDirection: 'column',
+  padding: '20px',
+  boxSizing: 'border-box',
+  gap: '15px',
 });
 
 const postTitle = style({

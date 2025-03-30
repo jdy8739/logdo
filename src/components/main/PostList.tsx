@@ -1,20 +1,12 @@
 import PostItem from './PostItem';
 import { postSection } from './PostList.css';
+import { Post } from '../../types/type';
 
-const PostList = ({
-  posts,
-}: {
-  posts: Queries.IndexPageQuery['allContentfulBlogPost']['nodes'];
-}) => {
+const PostList = ({ posts }: { posts: Post }) => {
   return (
     <section className={postSection}>
       {posts.map(post => (
-        <PostItem
-          key={post.slug}
-          title={post.title!}
-          date={post.date!}
-          slug={post.slug!}
-        />
+        <PostItem key={post.slug} {...post} />
       ))}
     </section>
   );
