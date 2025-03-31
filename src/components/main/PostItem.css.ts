@@ -2,12 +2,23 @@ import { style } from '@vanilla-extract/css';
 
 const postArticle = style({
   width: '320px',
+  minHeight: '186px',
   boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-  display: 'flex',
-  flexDirection: 'column',
   padding: '20px',
   boxSizing: 'border-box',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+});
+
+const postTitleWrapper = style({
+  display: 'flex',
+  flexDirection: 'column',
   gap: '15px',
+});
+
+const postDescription = style({
+  color: '#ccc',
 });
 
 const postTitle = style({
@@ -23,4 +34,25 @@ const postTitle = style({
   lineHeight: '1.2em',
 });
 
-export { postArticle, postTitle };
+const postDate = style({
+  fontSize: '14px',
+  color: '#ccc',
+});
+
+const postCategory = style({
+  fontSize: '14px',
+  selectors: {
+    '&:not(:last-child)': {
+      marginRight: '10px',
+    },
+  },
+});
+
+export {
+  postArticle,
+  postTitleWrapper,
+  postTitle,
+  postDescription,
+  postDate,
+  postCategory,
+};
