@@ -7,6 +7,7 @@ const postArticle = style({
   padding: '20px',
   boxSizing: 'border-box',
   display: 'flex',
+  gap: '15px',
   flexDirection: 'column',
   justifyContent: 'space-between',
 });
