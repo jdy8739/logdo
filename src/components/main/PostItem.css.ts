@@ -1,16 +1,27 @@
 import { style } from '@vanilla-extract/css';
+import { responsiveStyle } from '../../styles/responseive.css';
 
-const postArticle = style({
-  width: '320px',
-  minHeight: '186px',
-  boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-  padding: '20px',
-  boxSizing: 'border-box',
-  display: 'flex',
-  gap: '15px',
-  flexDirection: 'column',
-  justifyContent: 'space-between',
-});
+const postArticle = style([
+  {
+    width: '320px',
+    minHeight: '186px',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+    padding: '20px',
+    boxSizing: 'border-box',
+    display: 'flex',
+    gap: '15px',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+  },
+  responsiveStyle({
+    desktop: {
+      width: 'calc(50% - 10px)',
+    },
+    mobile: {
+      width: '100%',
+    },
+  }),
+]);
 
 const postTitleWrapper = style({
   display: 'flex',
