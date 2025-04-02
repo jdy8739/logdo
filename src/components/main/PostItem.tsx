@@ -5,6 +5,7 @@ import {
   postDescription,
   postDate,
   postCategory,
+  postLink,
 } from './PostItem.css';
 import { PostItem as PostItemType } from '../../types/type';
 import { GatsbyImage } from 'gatsby-plugin-image';
@@ -20,8 +21,8 @@ const PostItem = ({
   category,
 }: PostItemType) => {
   return (
-    <Link to={`/${slug}`}>
-      <article className={postArticle}>
+    <article className={postArticle}>
+      <Link to={`/${slug}`} className={postLink}>
         <figure>
           <GatsbyImage image={thumbnail!.gatsbyImageData!} alt={title!} />
         </figure>
@@ -41,8 +42,8 @@ const PostItem = ({
             </small>
           ))}
         </div>
-      </article>
-    </Link>
+      </Link>
+    </article>
   );
 };
 
