@@ -12,6 +12,10 @@ const postArticle = style([
     gap: '15px',
     flexDirection: 'column',
     justifyContent: 'space-between',
+    transition: 'all 0.3s ease',
+    ':hover': {
+      transform: 'translateY(-5px)',
+    },
   },
   responsiveStyle({
     desktop: {
@@ -52,10 +56,15 @@ const postDate = style({
 });
 
 const postCategory = style({
-  fontSize: '14px',
+  backgroundColor: '#eee',
+  color: '#333',
+  padding: '5px 10px',
+  borderRadius: '5px',
+  fontStyle: 'italic',
+  fontSize: '12px',
   selectors: {
     '&:not(:last-child)': {
-      marginRight: '10px',
+      marginRight: '5px',
     },
   },
 });
