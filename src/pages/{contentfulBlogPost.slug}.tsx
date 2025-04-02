@@ -1,12 +1,16 @@
-import { graphql, type PageProps } from 'gatsby';
+import { graphql } from 'gatsby';
+import PostHeader from '../components/main/PostHeader';
+import { PostDetail } from '../types/type';
+import PostBody from '../components/main/PostBody';
 
-export default function Post({ data }: PageProps<Queries.PostPageQuery>) {
+export default function Post({
+  data: { contentfulBlogPost: post },
+}: PostDetail) {
   return (
-    <div>
-      <div>{data.contentfulBlogPost?.title}</div>
-      <div>{data.contentfulBlogPost?.date}</div>
-      <div>{data.contentfulBlogPost?.slug}</div>
-    </div>
+    <>
+      <PostHeader post={post} />
+      <PostBody />
+    </>
   );
 }
 
@@ -14,11 +18,16 @@ export const query = graphql`
   query PostPage($slug: String!) {
     contentfulBlogPost(slug: { eq: $slug }) {
       title
-      slug
       date
       category
+      thumbnail {
+        gatsbyImageData(width: 1000)
+      }
       decription {
         decription
+      }
+      content {
+        raw
       }
     }
   }
