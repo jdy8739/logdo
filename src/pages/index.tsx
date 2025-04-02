@@ -4,12 +4,12 @@ import PostList from '../components/main/PostList';
 
 export default function Index({
   data: {
-    allContentfulBlogPost: { nodes },
+    allContentfulBlogPost: { nodes: posts },
   },
 }: PageProps<Queries.IndexPageQuery>) {
   return (
     <>
-      <PostList posts={nodes} />
+      <PostList posts={posts} />
     </>
   );
 }
@@ -22,6 +22,9 @@ export const query = graphql`
         slug
         date
         category
+        thumbnail {
+          gatsbyImageData(width: 500)
+        }
         decription {
           decription
         }
