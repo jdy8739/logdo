@@ -4,6 +4,7 @@ import { PostDetail } from '../types/type';
 import PostBody from '../components/main/PostBody';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import RENDER_OPTIONS from '../const/render-options';
+
 export default function Post({
   data: { contentfulBlogPost: post },
 }: PostDetail) {
