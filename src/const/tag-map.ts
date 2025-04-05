@@ -7,6 +7,8 @@ TAG_MAP.set(BLOCKS.HEADING_2, 'h2');
 TAG_MAP.set(BLOCKS.HEADING_3, 'h3');
 TAG_MAP.set(BLOCKS.OL_LIST, 'ol');
 TAG_MAP.set(BLOCKS.UL_LIST, 'ul');
+TAG_MAP.set(BLOCKS.HR, 'hr');
+TAG_MAP.set(BLOCKS.QUOTE, 'blockquote');
 
 TAG_MAP.set(MARKS.BOLD, 'strong');
 TAG_MAP.set(MARKS.ITALIC, 'em');
