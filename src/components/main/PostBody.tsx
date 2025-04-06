@@ -1,5 +1,6 @@
 import { postBody, postBodyContent } from './PostBody.css';
 import Prism from 'prismjs';
+import 'prismjs/components/prism-typescript';
 import { useEffect } from 'react';
 
 const PostBody = ({ children }: { children: React.ReactNode }) => {
