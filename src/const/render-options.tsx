@@ -10,11 +10,12 @@ import {
   getNodeRenderer,
 } from './node-renderers';
 import Code from '../components/common/Code';
-
-const CODE_METADATA_REGEX = /^language::(\w+)/;
+import CodeBlock from '../components/common/CodeBlock';
 
 /** contentful에서 제공하는 블록 태그와 인라인 태그를 태그이름 map과 클래스네임 객체에서 찾아 해당 요소를 그릴 수 있도록 해주는 함수 */
-const getRenderOptionsByClassNames = (classnames: Record<string, string>) => {
+const getNodeRenderOptionsByClassNames = (
+  classnames: Record<string, string>,
+) => {
   return Object.keys(classnames)
     .map(key => key)
     .reduce(
@@ -43,37 +44,24 @@ const getRenderOptionsByClassNames = (classnames: Record<string, string>) => {
 
 const RENDER_OPTIONS: Readonly<Options> = {
   renderMark: {
-    [MARKS.CODE]: (text: React.ReactNode) => {
-      const isBlock = !!text && CODE_METADATA_REGEX.test(text.toString());
+    [MARKS.CODE]: (code: React.ReactNode) => {
+      const isBlock = !!code && code.toString().includes('language::');
 
       if (!isBlock) {
-        return <Code>{text}</Code>;
+        return <Code className="language-typescript">{code as string}</Code>;
       }
 
       return (
-        <Code
-          isBlock
-          className={`language-${CODE_METADATA_REGEX.exec(text.toString())?.[1]}`}
-        >
-          {text.toString().replace(CODE_METADATA_REGEX, '').trimStart()}
-        </Code>
+        <CodeBlock isBlock className="language-typescript">
+          {code as string}
+        </CodeBlock>
       );
     },
   },
-  renderText: (text: string) => {
-    return text
-      .split('\n')
-      .reduce(
-        (children: React.ReactNode[], textSegment: string, index: number) => {
-          return [...children, index > 0 && <br key={index} />, textSegment];
-        },
-        [],
-      );
-  },
   renderNode: {
-    ...getRenderOptionsByClassNames(BLOCK_CLASSNAMES),
-    ...getRenderOptionsByClassNames(INLINE_CLASSNAMES),
-    ...getRenderOptionsByClassNames(MARKS_CLASSNAMES),
+    ...getNodeRenderOptionsByClassNames(BLOCK_CLASSNAMES),
+    ...getNodeRenderOptionsByClassNames(INLINE_CLASSNAMES),
+    ...getNodeRenderOptionsByClassNames(MARKS_CLASSNAMES),
   },
 };
 
