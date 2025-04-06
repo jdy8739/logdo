@@ -25,9 +25,11 @@ const getEmbeddedAssetRenderer =
       return null;
     }
 
-    return (
-      <GatsbyImage className={className} image={image} alt={description} />
-    );
+    return createElement(GatsbyImage, {
+      className,
+      image,
+      alt: description,
+    });
   };
 
 /** contentful에서 제공하는 하이퍼링크 태그의 렌더링함수를 반환하는 함수 */
