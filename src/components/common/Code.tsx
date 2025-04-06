@@ -1,15 +1,16 @@
-import { HTMLAttributes } from 'react';
 import { MARKS_CLASSNAMES } from '../../const/classnames/marks.css';
 import { MARKS } from '../../const/enums';
 
-const Code = ({
-  isBlock = false,
-  children,
-  ...props
-}: { isBlock?: boolean } & HTMLAttributes<HTMLDivElement>) => {
+type CodeProps = {
+  isBlock?: boolean;
+  className?: string;
+  children: string;
+};
+
+const Code = ({ isBlock = false, className, children }: CodeProps) => {
   if (!isBlock) {
     return (
-      <code {...props} className={MARKS_CLASSNAMES[MARKS.CODE]}>
+      <code className={`${MARKS_CLASSNAMES[MARKS.CODE]} ${className}`}>
         {children}
       </code>
     );
@@ -17,7 +18,7 @@ const Code = ({
 
   return (
     <pre className={MARKS_CLASSNAMES[MARKS.PRE]}>
-      <code {...props} className={MARKS_CLASSNAMES[MARKS.CODE]}>
+      <code className={`${MARKS_CLASSNAMES[MARKS.CODE]} ${className}`}>
         {children}
       </code>
     </pre>
@@ -25,3 +26,4 @@ const Code = ({
 };
 
 export default Code;
+export type { CodeProps };
