@@ -14,6 +14,7 @@ const MARKS_CLASSNAMES: Readonly<Partial<Record<MARKS, string>>> = {
     padding: '20px',
     background: '#f1f3f5',
     fontFamily: 'Nanum Gothic Coding, monospace',
+    overflowX: 'scroll',
   }),
 };
 
