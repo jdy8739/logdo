@@ -8,41 +8,34 @@ import { Block, Inline } from '@contentful/rich-text-types';
 import { createElement, ReactNode } from 'react';
 import { INLINE_CLASSNAMES } from './classnames/inline.css';
 
-const getRenderNode =
+/** contentful에서 제공하는 블록 태그와 인라인 태그를 렌더링하는 함수를 반환하는 함수 */
+const getNodeRenderer =
   (tagName: string, className: string): NodeRenderer =>
   (_: Block | Inline, children: ReactNode) =>
     createElement(tagName, { className }, children);
 
+/** contentful에서 제공하는 블록 태그와 인라인 태그를 태그이름 map과 클래스네임 객체에서 찾아 해당 요소를 그릴 수 있도록 해주는 함수 */
+const getRenderOptionsByClassNames = (classnames: Record<string, string>) => {
+  return Object.keys(classnames)
+    .map(key => key)
+    .reduce(
+      (nodes, key) => {
+        const tagKey = key as BLOCKS | INLINES;
+
+        const tagName = TAG_MAP.get(tagKey)!;
+
+        const className = classnames[tagKey]!;
+
+        return { ...nodes, [key]: getNodeRenderer(tagName, className) };
+      },
+      {} as Record<string, NodeRenderer>,
+    );
+};
+
 const RENDER_OPTIONS: Readonly<Options> = {
   renderNode: {
-    ...Object.keys(BLOCK_CLASSNAMES)
-      .map(key => key)
-      .reduce(
-        (nodes, key) => {
-          const TAG_KEY = key as BLOCKS;
-
-          const tagName = TAG_MAP.get(TAG_KEY)!;
-
-          const className = BLOCK_CLASSNAMES[TAG_KEY]!;
-
-          return { ...nodes, [key]: getRenderNode(tagName, className) };
-        },
-        {} as Record<string, NodeRenderer>,
-      ),
-    ...Object.keys(INLINE_CLASSNAMES)
-      .map(key => key)
-      .reduce(
-        (nodes, key) => {
-          const TAG_KEY = key as INLINES;
-
-          const tagName = TAG_MAP.get(TAG_KEY)!;
-
-          const className = INLINE_CLASSNAMES[TAG_KEY]!;
-
-          return { ...nodes, [key]: getRenderNode(tagName, className) };
-        },
-        {} as Record<string, NodeRenderer>,
-      ),
+    ...getRenderOptionsByClassNames(BLOCK_CLASSNAMES),
+    ...getRenderOptionsByClassNames(INLINE_CLASSNAMES),
   },
 };
 
