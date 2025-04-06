@@ -4,6 +4,7 @@ enum MARKS {
   ITALIC = 'italic',
   UNDERLINE = 'underline',
   CODE = 'code',
+  PRE = 'pre',
   SUPERSCRIPT = 'superscript',
   SUBSCRIPT = 'subscript',
 }
