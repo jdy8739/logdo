@@ -35,6 +35,10 @@ const BLOCK_CLASSNAMES: Readonly<Partial<Record<BLOCKS, string>>> = {
     borderRadius: '8px',
     background: '#f1f3f5',
   }),
+  [BLOCKS.EMBEDDED_ASSET]: style({
+    width: '100%',
+    margin: '30px 0',
+  }),
 };
 
 export { BLOCK_CLASSNAMES };

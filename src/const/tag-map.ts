@@ -9,6 +9,7 @@ TAG_MAP.set(BLOCKS.OL_LIST, 'ol');
 TAG_MAP.set(BLOCKS.UL_LIST, 'ul');
 TAG_MAP.set(BLOCKS.HR, 'hr');
 TAG_MAP.set(BLOCKS.QUOTE, 'blockquote');
+TAG_MAP.set(BLOCKS.EMBEDDED_ASSET, 'img');
 
 TAG_MAP.set(MARKS.BOLD, 'strong');
 TAG_MAP.set(MARKS.ITALIC, 'em');
