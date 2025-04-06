@@ -5,11 +5,18 @@ import { Block, Inline } from '@contentful/rich-text-types';
 import { ReactNode, createElement } from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
+/** 자식 요소가 없는 요소 */
+const ELEMENTS_WITH_NO_CHILDREN = ['hr'];
+
 /** contentful에서 제공하는 블록 태그와 인라인 태그를 렌더링하는 함수를 반환하는 함수 */
 const getNodeRenderer =
   (tagName: string, className: string): NodeRenderer =>
   (_: Block | Inline, children: ReactNode) =>
-    createElement(tagName, { className }, children);
+    createElement(
+      tagName,
+      { className },
+      ELEMENTS_WITH_NO_CHILDREN.includes(tagName) ? null : children,
+    );
 
 /** contentful에서 제공하는 이미지 태그의 렌더링함수를 반환하는 함수 */
 const getEmbeddedAssetRenderer =
