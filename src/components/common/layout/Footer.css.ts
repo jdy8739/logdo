@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { responsiveStyle } from '../../styles/responseive.css';
+import { responsiveStyle } from '../../../styles/responseive.css';
 
 const footer = style([
   {

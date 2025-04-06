@@ -9,8 +9,8 @@ import {
   getHyperlinkRenderer,
   getNodeRenderer,
 } from './node-renderers';
-import Code from '../components/common/Code';
-import CodeBlock from '../components/common/CodeBlock';
+import Code from '../components/common/content/Code';
+import CodeBlock from '../components/common/content/CodeBlock';
 
 /** contentful에서 제공하는 블록 태그와 인라인 태그를 태그이름 map과 클래스네임 객체에서 찾아 해당 요소를 그릴 수 있도록 해주는 함수 */
 const getNodeRenderOptionsByClassNames = (

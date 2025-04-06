@@ -1,5 +1,5 @@
-import { MARKS_CLASSNAMES } from '../../const/classnames/marks.css';
-import { MARKS } from '../../const/enums';
+import { MARKS_CLASSNAMES } from '../../../const/classnames/marks.css';
+import { MARKS } from '../../../const/enums';
 
 type CodeProps = {
   isBlock?: boolean;
