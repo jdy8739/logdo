@@ -26,7 +26,7 @@ const BLOCK_CLASSNAMES: Readonly<Partial<Record<BLOCKS, string>>> = {
     padding: '30px 0',
   }),
   [BLOCKS.HR]: style({
-    border: '1px solid rgba(0, 0, 0, 0.5)',
+    border: '1px solid rgba(0, 0, 0, 0.15)',
     margin: '80px 0',
   }),
   [BLOCKS.QUOTE]: style({
