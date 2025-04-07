@@ -5,7 +5,7 @@ type CodeBlockProps = Omit<CodeProps, 'isBlock'>;
 const CodeBlock = ({ children, ...props }: CodeBlockProps) => {
   return (
     <Code {...props} isBlock>
-      {children.replace('language::typescript\n', '')}
+      {children}
     </Code>
   );
 };

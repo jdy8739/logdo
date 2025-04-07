@@ -62,10 +62,13 @@ const getMarkRenderOptions = (code: React.ReactNode) => {
     );
   }
 
+  /** 코드 블럭의 언어 */
+  const language = (code as string).split('\n')[0].split('language::')[1];
+
   return createElement(
     CodeBlock,
-    { className: 'language-typescript' } as CodeBlockProps,
-    code as string,
+    { className: `language-${language}` } as CodeBlockProps,
+    (code as string).replace(`language::${language}\n`, ''),
   );
 };
 
