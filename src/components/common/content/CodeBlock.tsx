@@ -1,9 +1,14 @@
 import Code, { CodeProps } from './Code';
 
-const CodeBlock = ({ children, ...props }: CodeProps) => {
+type CodeBlockProps = Omit<CodeProps, 'isBlock'>;
+
+const CodeBlock = ({ children, ...props }: CodeBlockProps) => {
   return (
-    <Code {...props}>{children.replace('language::typescript\n', '')}</Code>
+    <Code {...props} isBlock>
+      {children.replace('language::typescript\n', '')}
+    </Code>
   );
 };
 
 export default CodeBlock;
+export type { CodeBlockProps };
