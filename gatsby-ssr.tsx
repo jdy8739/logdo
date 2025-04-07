@@ -1,5 +1,5 @@
 import { GatsbySSR } from 'gatsby';
-import Layout from './src/components/common/Layout';
+import Layout from './src/components/common/layout/Layout';
 
 const wrapPageElement: GatsbySSR['wrapPageElement'] = ({
   element,
