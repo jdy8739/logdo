@@ -2,7 +2,6 @@ import { graphql } from 'gatsby';
 import PostHeader from '../components/main/PostHeader';
 import { PostDetail } from '../types/type';
 import PostBody from '../components/main/PostBody';
-import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import RENDER_OPTIONS from '../const/render-options';
 
 export default function Post({
@@ -11,7 +10,7 @@ export default function Post({
   return (
     <>
       <PostHeader post={post} />
-      <PostBody>{renderRichText(post.content, RENDER_OPTIONS)}</PostBody>
+      <PostBody post={post} renderOptions={RENDER_OPTIONS} />
     </>
   );
 }
