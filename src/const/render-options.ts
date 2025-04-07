@@ -10,7 +10,11 @@ import {
   getNodeRenderer,
 } from './node-renderers';
 import Code from '../components/common/content/Code';
-import CodeBlock from '../components/common/content/CodeBlock';
+import CodeBlock, {
+  CodeBlockProps,
+} from '../components/common/content/CodeBlock';
+import { createElement } from 'react';
+import { CodeProps } from '../components/common/content/Code';
 
 /** contentful에서 제공하는 블록 태그와 인라인 태그를 태그이름 map과 클래스네임 객체에서 찾아 해당 요소를 그릴 수 있도록 해주는 함수 */
 const getNodeRenderOptionsByClassNames = (
@@ -42,21 +46,32 @@ const getNodeRenderOptionsByClassNames = (
     );
 };
 
+/** 코드 요소 렌더링 옵션을 반환하는 함수 */
+const getMarkRenderOptions = (code: React.ReactNode) => {
+  /**
+   * 코드요소가 일반 텍스트에 함께 있는 인라인 요소인지 블럭 요소인지 여부
+   * language:: 텍스트로 메타데이터가 있는 경우 블럭 요소로 처리
+   */
+  const isBlock = !!code && code.toString().includes('language::');
+
+  if (!isBlock) {
+    return createElement(
+      Code,
+      { className: 'language-typescript' } as CodeProps,
+      code as string,
+    );
+  }
+
+  return createElement(
+    CodeBlock,
+    { className: 'language-typescript' } as CodeBlockProps,
+    code as string,
+  );
+};
+
 const RENDER_OPTIONS: Readonly<Options> = {
   renderMark: {
-    [MARKS.CODE]: (code: React.ReactNode) => {
-      const isBlock = !!code && code.toString().includes('language::');
-
-      if (!isBlock) {
-        return <Code className="language-typescript">{code as string}</Code>;
-      }
-
-      return (
-        <CodeBlock isBlock className="language-typescript">
-          {code as string}
-        </CodeBlock>
-      );
-    },
+    [MARKS.CODE]: getMarkRenderOptions,
   },
   renderNode: {
     ...getNodeRenderOptionsByClassNames(BLOCK_CLASSNAMES),
