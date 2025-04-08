@@ -3,7 +3,7 @@ import useTableContents from '../../hooks/useTableOfContents';
 import { tocContainer, tocTitle, tocList } from './TableOfContents.css';
 
 const TableOfContents = ({ rawContent }: { rawContent: string }) => {
-  const { tableOfContents } = useTableContents(rawContent);
+  const { tableOfContents, activeId } = useTableContents(rawContent);
 
   return (
     <section className={tocContainer}>
@@ -12,18 +12,23 @@ const TableOfContents = ({ rawContent }: { rawContent: string }) => {
       </div>
       <div>
         <ul className={tocList}>
-          {tableOfContents.map(title => (
-            <li
-              key={title.id}
-              style={{
-                paddingLeft: `${title.depth * 5}px`,
-                fontSize: `${15 - title.depth}px`,
-                color: `rgba(0, 0, 0, ${1 - title.depth / 5})`,
-              }}
-            >
-              <Link to={`#${title.id}`}>{title.title}</Link>
-            </li>
-          ))}
+          {tableOfContents.map(title => {
+            const isActive = title.id === activeId;
+
+            return (
+              <li
+                key={title.id}
+                style={{
+                  paddingLeft: `${title.depth * 5}px`,
+                  color: `rgba(0, 0, 0, ${isActive ? 1 : 1 - title.depth / 5})`,
+                  fontSize: `${15 - title.depth}px`,
+                  fontWeight: isActive ? 'bold' : 'normal',
+                }}
+              >
+                <Link to={`#${title.id}`}>{title.title}</Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>
