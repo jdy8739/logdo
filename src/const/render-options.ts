@@ -6,6 +6,7 @@ import { MARKS_CLASSNAMES } from './classnames/marks.css';
 import { BLOCK_CLASSNAMES } from './classnames/blocks.css';
 import {
   getEmbeddedAssetRenderer,
+  getHeadingRenderer,
   getHyperlinkRenderer,
   getNodeRenderer,
 } from './node-renderers';
@@ -28,6 +29,8 @@ const getNodeRenderOptionsByClassNames = (
 
         const className = classnames[tagKey]!;
 
+        const tagName = TAG_MAP.get(tagKey)!;
+
         switch (tagKey) {
           case BLOCKS.EMBEDDED_ASSET:
             return { ...nodes, [key]: getEmbeddedAssetRenderer(className) };
@@ -35,10 +38,15 @@ const getNodeRenderOptionsByClassNames = (
           case INLINES.HYPERLINK:
             return { ...nodes, [key]: getHyperlinkRenderer(className) };
 
+          case BLOCKS.HEADING_1:
+          case BLOCKS.HEADING_2:
+          case BLOCKS.HEADING_3:
+            return { ...nodes, [key]: getHeadingRenderer(tagName, className) };
+
           default:
             return {
               ...nodes,
-              [key]: getNodeRenderer(TAG_MAP.get(tagKey)!, className),
+              [key]: getNodeRenderer(tagName, className),
             };
         }
       },

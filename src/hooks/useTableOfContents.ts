@@ -3,6 +3,8 @@ import { useMemo, useState } from 'react';
 const useTableContents = (rawContent: string) => {
   const [activeId, setActiveId] = useState<string | null>(null);
 
+  //console.log(JSON.parse(rawContent));
+
   const tableOfContents = useMemo<
     {
       title: string;
@@ -25,11 +27,13 @@ const useTableContents = (rawContent: string) => {
     return headings.map(
       ({
         nodeType,
-        content: [{ value: title }],
+        content,
       }: {
         nodeType: string;
         content: { value: string }[];
       }) => {
+        const title = content.map(({ value }) => value).join('');
+
         return {
           title,
           id: `${title.replaceAll(' ', '-')}_`,

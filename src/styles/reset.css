@@ -85,6 +85,11 @@ video {
   font-size: 100%;
   vertical-align: baseline;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
