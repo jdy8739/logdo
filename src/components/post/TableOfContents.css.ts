@@ -27,6 +27,7 @@ const tocList = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '10px',
+  listStyle: 'none',
 });
 
 export { tocContainer, tocTitle, tocList };
