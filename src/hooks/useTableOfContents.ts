@@ -61,11 +61,12 @@ const useTableContents = (rawContent: string) => {
       ([firstEntry]) => {
         if (firstEntry) {
           setActiveId(prevActiveId => {
-            // 스크롤을 아래로 내리는 경우
+            // 스크롤을 아래로 내리는 경우, 최근에 뷰에 보인 타이틀에 뷰의 위쪽으로 사라졌을 때 해당 타이틀을 옵저버가 감지하고 요소의 id를 반환
             if (firstEntry.boundingClientRect.top < 0) {
               return firstEntry.target.id;
             }
 
+            /** 스크롤을 위로 올리는 경우, 현재 활성화된 타이틀이 뷰에 들어왔을 때 현재 타이틀에 대한 인덱스 */
             const activeIndex = tableOfContents.findIndex(
               ({ id }) => id === prevActiveId,
             );
@@ -74,7 +75,7 @@ const useTableContents = (rawContent: string) => {
           });
         }
       },
-      { rootMargin: '0% 0px -100% 0px' },
+      { rootMargin: '0% 0px -100% 0px' }, // 요소가 뷰의 위쪽으로 스크롤당해 사라졌을 때 옵저버 감지를 트리거하기 위한 옵션
     );
 
     enrollObserver({
