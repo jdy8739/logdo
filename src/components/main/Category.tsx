@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { categoryContainer, categoryItem } from './Category.css';
 
 type Props = {
   category: string;
@@ -7,26 +8,33 @@ type Props = {
 };
 
 const Category = ({ category, categoryMap, handleCategoryChange }: Props) => {
-  const categoryButtons = useMemo(() => {
-    return Array.from(categoryMap, ([name, count]) => ({ name, count }));
-  }, [categoryMap]);
+  const categoryButtons = useMemo(
+    () => Array.from(categoryMap, ([name, count]) => ({ name, count })),
+    [categoryMap],
+  );
 
   return (
-    <section>
-      {categoryButtons.map(({ name, count }) => (
-        <button
-          key={name}
-          onClick={() => handleCategoryChange(name)}
-          style={{
-            backgroundColor:
-              category === name ? 'var(--primary)' : 'var(--background)',
-          }}
-        >
-          <span>{name}</span>
-          <span>-</span>
-          <span>{count}</span>
-        </button>
-      ))}
+    <section className={categoryContainer}>
+      {categoryButtons.map(({ name, count }) => {
+        const isSelected = category === name;
+
+        return (
+          <button
+            key={name}
+            className={categoryItem}
+            onClick={() => handleCategoryChange(name)}
+            style={{
+              backgroundColor: isSelected ? '#eee' : '#e0e0e0',
+              color: isSelected ? '#8b8b8b' : '#fff',
+              cursor: isSelected ? 'default' : 'pointer',
+            }}
+          >
+            <span>{name}</span>
+            <span>{': '}</span>
+            <span>{count}</span>
+          </button>
+        );
+      })}
     </section>
   );
 };

@@ -23,6 +23,9 @@ const layout = style([
 const contents = style([
   {
     margin: '80px 0',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '80px',
   },
   responsiveStyle({
     desktop: {
