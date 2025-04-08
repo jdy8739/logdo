@@ -13,7 +13,14 @@ const TableOfContents = ({ rawContent }: { rawContent: string }) => {
       <div>
         <ul className={tocList}>
           {tableOfContents.map(title => (
-            <li key={title.id}>
+            <li
+              key={title.id}
+              style={{
+                paddingLeft: `${title.depth * 5}px`,
+                fontSize: `${15 - title.depth}px`,
+                color: `rgba(0, 0, 0, ${1 - title.depth / 5})`,
+              }}
+            >
               <Link to={`#${title.id}`}>{title.title}</Link>
             </li>
           ))}
