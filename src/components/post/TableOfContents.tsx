@@ -6,7 +6,7 @@ const TableOfContents = ({ rawContent }: { rawContent: string }) => {
   const { tableOfContents, activeId } = useTableContents(rawContent);
 
   return (
-    <section className={tocContainer}>
+    <aside className={tocContainer}>
       <div>
         <h3 className={tocTitle}>목차</h3>
       </div>
@@ -31,7 +31,7 @@ const TableOfContents = ({ rawContent }: { rawContent: string }) => {
           })}
         </ul>
       </div>
-    </section>
+    </aside>
   );
 };
 
