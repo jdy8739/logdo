@@ -12,20 +12,20 @@ const TableOfContents = ({ rawContent }: { rawContent: string }) => {
       </div>
       <div>
         <ul className={tocList}>
-          {tableOfContents.map(title => {
-            const isActive = title.id === activeId;
+          {tableOfContents.map(({ id, title, depth }, index) => {
+            const isActive = id === activeId;
 
             return (
               <li
-                key={title.id}
+                key={`${id}-${index}`}
                 style={{
-                  paddingLeft: `${title.depth * 5}px`,
-                  color: `rgba(0, 0, 0, ${isActive ? 1 : 1 - title.depth / 5})`,
-                  fontSize: `${15 - title.depth}px`,
+                  paddingLeft: `${depth * 5}px`,
+                  color: `rgba(0, 0, 0, ${isActive ? 1 : 1 - depth / 5})`,
+                  fontSize: `${15 - depth}px`,
                   fontWeight: isActive ? 'bold' : 'normal',
                 }}
               >
-                <Link to={`#${title.id}`}>{title.title}</Link>
+                <Link to={`#${id}`}>{title}</Link>
               </li>
             );
           })}
