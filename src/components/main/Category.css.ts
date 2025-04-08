@@ -4,7 +4,6 @@ const categoryContainer = style({
   display: 'flex',
   flexWrap: 'wrap',
   gap: '10px',
-  marginTop: '80px',
 });
 
 const categoryItem = style({
