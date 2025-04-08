@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { ComplexStyleRule, style } from '@vanilla-extract/css';
 import { responsiveStyle } from '../../styles/responseive.css';
 
 const postArticle = style([
@@ -33,28 +33,37 @@ const postLink = style({
 const postTitleWrapper = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '15px',
+  gap: '8px',
 });
 
-const postDescription = style({
-  color: '#ccc',
-});
-
-const postTitle = style({
+/** 말줄임 표시를 위한 스타일 */
+const ELLIPSIS_STYLE = {
   display: '-webkit-box',
   overflow: 'hidden',
-  maxHeight: '2.4em',
-  fontSize: '18px',
-  fontWeight: '700',
   textOverflow: 'ellipsis',
   wordWrap: 'break-word',
-  WebkitLineClamp: '2',
   WebkitBoxOrient: 'vertical',
+} as const;
+
+const postDescription = style({
+  ...ELLIPSIS_STYLE,
+  color: '#ccc',
+  fontSize: '12px',
+  fontWeight: '700',
   lineHeight: '1.2em',
-});
+  WebkitLineClamp: '2',
+} as ComplexStyleRule);
+
+const postTitle = style({
+  ...ELLIPSIS_STYLE,
+  fontSize: '18px',
+  fontWeight: '700',
+  lineHeight: '1.2em',
+  WebkitLineClamp: '1',
+} as ComplexStyleRule);
 
 const postDate = style({
-  fontSize: '14px',
+  fontSize: '12px',
   color: '#ccc',
 });
 

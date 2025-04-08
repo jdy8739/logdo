@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
-import PostHeader from '../components/main/PostHeader';
+import PostHeader from '../components/post/PostHeader';
 import { PostDetail } from '../types/type';
-import PostBody from '../components/main/PostBody';
+import PostBody from '../components/post/PostBody';
 import RENDER_OPTIONS from '../const/render-options';
 
 export default function Post({
