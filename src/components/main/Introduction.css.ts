@@ -6,7 +6,6 @@ const introSection = style([
     display: 'flex',
     alignItems: 'center',
     gap: '60px',
-    padding: '60px 0',
   },
   responsiveStyle({
     desktop: {

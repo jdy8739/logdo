@@ -24,8 +24,8 @@ const Category = ({ category, categoryMap, handleCategoryChange }: Props) => {
             className={categoryItem}
             onClick={() => handleCategoryChange(name)}
             style={{
-              backgroundColor: isSelected ? '#eee' : '#e0e0e0',
-              color: isSelected ? '#8b8b8b' : '#fff',
+              backgroundColor: isSelected ? '#f5f5f5' : '#333333',
+              color: isSelected ? '#666666' : '#ffffff',
               cursor: isSelected ? 'default' : 'pointer',
             }}
           >
