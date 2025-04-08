@@ -28,6 +28,7 @@ const PostList = ({ posts }: { posts: Post }) => {
         {postItems.map(post => (
           <PostItem key={post.slug} {...post} />
         ))}
+        {postItems.length === 2 && <article />}
       </MasonryInfiniteGrid>
     </section>
   );
