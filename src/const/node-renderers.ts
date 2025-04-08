@@ -45,15 +45,22 @@ const getEmbeddedAssetRenderer =
       return null;
     }
 
-    return createElement(
-      'figure',
-      undefined,
+    return createElement('figure', undefined, [
       createElement(GatsbyImage, {
+        key: 'image',
         className,
         image,
         alt: description,
       }),
-    );
+      createElement(
+        'figcaption',
+        {
+          key: 'figcaption',
+          undefined,
+        },
+        description,
+      ),
+    ]);
   };
 
 /** contentful에서 제공하는 하이퍼링크 태그의 렌더링함수를 반환하는 함수 */

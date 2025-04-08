@@ -29,15 +29,15 @@ export const query = graphql`
       }
       content {
         raw
-        # references {
-        #   ... on ContentfulAsset {
-        #     contentful_id
-        #     title
-        #     description
-        #     gatsbyImageData(width: 774)
-        #     __typename
-        #   }
-        # }
+        references {
+          ... on ContentfulAsset {
+            contentful_id
+            title
+            description
+            gatsbyImageData(width: 774)
+            __typename
+          }
+        }
       }
     }
   }
