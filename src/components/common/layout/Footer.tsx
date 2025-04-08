@@ -3,8 +3,8 @@ import { footer } from './Footer.css';
 const Footer = () => {
   return (
     <footer className={footer}>
-      <div>Thank You for Visiting My Blog, Have a Good Day 😆</div>
-      <div>Copyright © 2025 logDo. All rights reserved.</div>
+      <div>방문해주셔서 감사합니다. 좋은 하루 보내세요. 😆</div>
+      <div>피드백은 언제나 환영입니다.</div>
     </footer>
   );
 };
