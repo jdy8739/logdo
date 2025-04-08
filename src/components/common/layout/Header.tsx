@@ -12,17 +12,18 @@ const Header = () => {
       </div>
       <div className={iconContainer}>
         <span>
-          <Link to="https://github.com/jdy8739" target="_blank">
+          <a href="https://github.com/jdy8739" target="_blank" rel="noreferrer">
             <AiFillGithub />
-          </Link>
+          </a>
         </span>
         <span>
-          <Link
-            to="https://www.linkedin.com/in/doyoung-chung-270b08259/"
+          <a
+            href="https://www.linkedin.com/in/doyoung-chung-270b08259/"
             target="_blank"
+            rel="noreferrer"
           >
             <AiFillLinkedin />
-          </Link>
+          </a>
         </span>
       </div>
     </header>
