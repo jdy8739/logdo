@@ -4,7 +4,7 @@ import { NodeRenderer } from '@contentful/rich-text-react-renderer';
 import { Block, Inline } from '@contentful/rich-text-types';
 import { ReactNode, createElement } from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import extractTextFromChildren from '../components/utils/reactUtils';
+import extractTextFromChildren from '../utils/reactUtils';
 
 /** 자식 요소가 없는 요소 */
 const ELEMENTS_WITH_NO_CHILDREN: readonly string[] = ['hr'];
