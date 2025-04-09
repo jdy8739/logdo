@@ -1,8 +1,9 @@
-import { graphql } from 'gatsby';
+import { graphql, HeadFC, HeadProps } from 'gatsby';
 import PostHeader from '../components/post/PostHeader';
 import { PostDetail } from '../types/type';
 import PostBody from '../components/post/PostBody';
 import RENDER_OPTIONS from '../const/render-options';
+import SEO from '../components/common/Seo';
 
 export default function Post({
   data: { contentfulBlogPost: post },
@@ -20,8 +21,10 @@ export const query = graphql`
     contentfulBlogPost(slug: { eq: $slug }) {
       title
       date
+      slug
       category
       thumbnail {
+        url
         gatsbyImageData(width: 1000)
       }
       decription {
@@ -42,3 +45,14 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head: HeadFC<Queries.PostPageQuery> = ({
+  data: { contentfulBlogPost },
+}: HeadProps<PostDetail>) => (
+  <SEO
+    title={contentfulBlogPost?.title ?? ''}
+    description={contentfulBlogPost?.decription?.decription ?? ''}
+    pathname={`/${contentfulBlogPost?.slug}`}
+    image={contentfulBlogPost?.thumbnail?.url ?? ''}
+  />
+);

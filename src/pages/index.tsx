@@ -4,6 +4,7 @@ import PostList from '../components/post/PostList';
 import Introduction from '../components/main/Introduction';
 import Category from '../components/main/Category';
 import { useMemo, useState, useCallback } from 'react';
+import SEO from '../components/common/Seo';
 
 export default function Index({
   data: {
@@ -77,4 +78,4 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC = () => <title>Home Page</title>;
+export const Head: HeadFC = () => <SEO />;

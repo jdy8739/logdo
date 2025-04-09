@@ -5,6 +5,7 @@ import {
   notFoundDescription,
   notFoundLink,
 } from './404.css';
+import SEO from '../components/common/Seo';
 
 const NotFoundPage: React.FC<PageProps> = () => {
   return (
@@ -22,4 +23,4 @@ const NotFoundPage: React.FC<PageProps> = () => {
 
 export default NotFoundPage;
 
-export const Head: HeadFC = () => <title>Not found 404</title>;
+export const Head: HeadFC = () => <SEO />;
