@@ -57,8 +57,8 @@ const SEO = ({ title, description, pathname, image, children }: SEOProps) => {
       <meta name="twitter:title" content={metadata.title} />
       <meta name="twitter:description" content={metadata.description} />
       <meta name="twitter:image" content={metadata.image} />
-      <meta name="twitter:site" content="@사용자이름" />
-      <meta name="twitter:creator" content="@사용자이름" />
+      <meta name="twitter:site" content={siteMetadata.siteUrl} />
+      <meta name="twitter:creator" content="jdy8739" />
 
       {children}
     </>
