@@ -10,7 +10,7 @@ import {
   postCategoryContainer,
   postDateContainer,
 } from './PostHeader.css';
-import { formatDate } from '../utils/dateUtils';
+import { formatDate } from '../../utils/dateUtils';
 
 const PostHeader = ({
   post: { title, date, category, thumbnail },

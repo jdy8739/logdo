@@ -10,7 +10,7 @@ import {
 import { PostItem as PostItemType } from '../../types/type';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
-import { formatDate } from '../utils/dateUtils';
+import { formatDate } from '../../utils/dateUtils';
 
 const PostItem = ({
   title,
