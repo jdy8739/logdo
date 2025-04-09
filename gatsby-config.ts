@@ -3,15 +3,24 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+const SITE_URL = 'https://naver.com';
+
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `여기에 원하는 제목을 추가해주세요!`,
     description: '여기에 원하는 설명을 추가해주세요!',
-    siteUrl: `https://naver.com`, // 대괄호 부분에 깃허브 유저명을 넣어주세요.
+    siteUrl: SITE_URL,
   },
   jsxRuntime: 'automatic',
   graphqlTypegen: true,
   plugins: [
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: SITE_URL,
+        stripQueryString: true,
+      },
+    },
     {
       resolve: 'gatsby-source-contentful',
       options: {
