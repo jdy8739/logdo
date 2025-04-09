@@ -41,6 +41,12 @@ const config: GatsbyConfig = {
       },
       __key: 'images',
     },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
   ],
 };
 
