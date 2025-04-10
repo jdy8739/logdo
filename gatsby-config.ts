@@ -3,18 +3,24 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const SITE_URL =
-  'https://67f7dbfa0fd3db04f288d7c6--celebrated-kelpie-df1d77.netlify.app/';
+const SITE_URL = 'https://logdo.netlify.app';
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `여기에 원하는 제목을 추가해주세요!`,
-    description: '여기에 원하는 설명을 추가해주세요!',
+    title: 'logDo',
+    description: '안녕하세요! 웹 프론트엔드 개발자 정도영입니다. 😆',
     siteUrl: SITE_URL,
   },
   jsxRuntime: 'automatic',
   graphqlTypegen: true,
   plugins: [
+    {
+      resolve: 'gatsby-plugin-gtag',
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS_ID,
+        head: true, // 애널리틱스 스크립트를 Head 태그 내에 둘지에 대한 속성
+      },
+    },
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
