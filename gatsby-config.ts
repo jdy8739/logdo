@@ -3,7 +3,8 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const SITE_URL = 'https://naver.com';
+const SITE_URL =
+  'https://67f7dbfa0fd3db04f288d7c6--celebrated-kelpie-df1d77.netlify.app/';
 
 const config: GatsbyConfig = {
   siteMetadata: {
