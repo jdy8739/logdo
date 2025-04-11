@@ -23,7 +23,7 @@ const postBodyContent = style({
   overflow: 'auto',
   display: 'flex',
   flexDirection: 'column',
-  gap: '100px',
+  gap: '10px',
   fontSize: '16px',
   lineHeight: '2',
   wordBreak: 'break-word',
