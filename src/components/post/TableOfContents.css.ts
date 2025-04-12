@@ -30,4 +30,8 @@ const tocList = style({
   listStyle: 'none',
 });
 
-export { tocContainer, tocTitle, tocList };
+const tocItem = style({
+  lineHeight: '1.5',
+});
+
+export { tocContainer, tocTitle, tocList, tocItem };

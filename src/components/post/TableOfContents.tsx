@@ -1,6 +1,11 @@
 import { Link } from 'gatsby';
 import useTableContents from '../../hooks/useTableOfContents';
-import { tocContainer, tocTitle, tocList } from './TableOfContents.css';
+import {
+  tocContainer,
+  tocTitle,
+  tocList,
+  tocItem,
+} from './TableOfContents.css';
 
 const TableOfContents = ({ rawContent }: { rawContent: string }) => {
   const { tableOfContents, activeId } = useTableContents(rawContent);
@@ -25,7 +30,9 @@ const TableOfContents = ({ rawContent }: { rawContent: string }) => {
                   fontWeight: isActive ? 'bold' : 'normal',
                 }}
               >
-                <Link to={`#${id}`}>{title}</Link>
+                <Link to={`#${id}`} className={tocItem}>
+                  {title}
+                </Link>
               </li>
             );
           })}
