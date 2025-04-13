@@ -6,12 +6,12 @@ const UTTERANCES_ATTRS = {
   'issue-term': 'pathname',
   label: 'Comment',
   theme: `github-light`,
-  crossorigin: 'anonymous',
+  crossOrigin: 'anonymous',
   async: 'true',
 } as const;
 
 const Comments = () => {
-  const commentDivRef = useRef<HTMLDivElement>(null);
+  const commentElementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const utterances: HTMLScriptElement = Object.entries(
@@ -22,10 +22,10 @@ const Comments = () => {
       return acc;
     }, document.createElement('script'));
 
-    commentDivRef.current!.appendChild(utterances);
+    commentElementRef.current!.appendChild(utterances);
   }, []);
 
-  return <div ref={commentDivRef} />;
+  return <figure ref={commentElementRef} />;
 };
 
 export default Comments;
