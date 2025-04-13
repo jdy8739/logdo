@@ -21,10 +21,10 @@ const PostBody = ({
 
   return (
     <section className={postBody}>
-      <div id="content" className={postBodyContent}>
+      <article id="content" className={postBodyContent}>
         {renderRichText(content, renderOptions)}
         <Comments />
-      </div>
+      </article>
       <TableOfContents rawContent={content.raw} />
     </section>
   );
