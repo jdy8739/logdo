@@ -1,6 +1,6 @@
 import { Link } from 'gatsby';
 import { title, header, iconContainer } from './Header.css';
-import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
+import { AiFillGithub, AiFillLinkedin, AiFillFileText } from 'react-icons/ai';
 
 const Header = () => {
   return (
@@ -23,6 +23,15 @@ const Header = () => {
             rel="noreferrer"
           >
             <AiFillLinkedin />
+          </a>
+        </span>
+        <span>
+          <a
+            href="https://www.notion.so/FE-edd9d71558484a87b9944d5155b40089"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <AiFillFileText />
           </a>
         </span>
       </div>
