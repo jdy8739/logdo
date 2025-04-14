@@ -56,7 +56,6 @@ const getEmbeddedAssetRenderer =
         'figcaption',
         {
           key: 'figcaption',
-          undefined,
         },
         description,
       ),
