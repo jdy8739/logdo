@@ -14,13 +14,15 @@ const Comments = () => {
   const commentElementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const scriptElement = document.createElement('script');
+
     const utterances: HTMLScriptElement = Object.entries(
       UTTERANCES_ATTRS,
     ).reduce((acc, [key, value]) => {
       acc.setAttribute(key, value);
 
       return acc;
-    }, document.createElement('script'));
+    }, scriptElement);
 
     commentElementRef.current!.appendChild(utterances);
   }, []);
