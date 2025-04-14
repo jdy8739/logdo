@@ -58,7 +58,8 @@ const useTableContents = (rawContent: string) => {
     [],
   );
 
-  useEffect(() => {
+  /** 타이틀 요소를 관측하는 옵저버를 생성하는 함수 */
+  const createObserver = useCallback(() => {
     const observer = new IntersectionObserver(
       ([firstEntry]) => {
         if (firstEntry) {
@@ -81,6 +82,12 @@ const useTableContents = (rawContent: string) => {
         rootMargin: `${ROOT_MARGIN}px 0px -${window.innerHeight - ROOT_MARGIN}px 0px`,
       }, // 요소가 뷰의 위쪽으로 스크롤당해 사라졌을 때 옵저버 감지를 트리거하기 위한 옵션
     );
+
+    return observer;
+  }, []);
+
+  useEffect(() => {
+    const observer = createObserver();
 
     enrollObserver({
       query: '#content > h1, #content > h2, #content >h3',
