@@ -38,9 +38,6 @@ const TableOfContents = ({ rawContent }: { rawContent: string }) => {
                 key={`${id}-${index}`}
                 style={{
                   paddingLeft: `${depth * 5}px`,
-                  // color: `rgba(0, 0, 0, ${isActive ? 1 : 1 - depth / 5})`,
-                  // fontSize: `${15 - depth}px`,
-                  // fontWeight: isActive ? 'bold' : 'normal',
                 }}
               >
                 <button
