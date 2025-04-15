@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
-const ROOT_MARGIN = 100;
-
 const useTableContents = (rawContent: string) => {
   const [activeId, setActiveId] = useState<string | null>(null);
+
+  console.log('activeId ', activeId);
 
   /** raw content의 헤더요소에서 추출한 테이블 오브 콘텐츠 리스트 */
   const tableOfContents = useMemo<
@@ -61,11 +61,14 @@ const useTableContents = (rawContent: string) => {
   /** 타이틀 요소를 관측하는 옵저버를 생성하는 함수 */
   const createObserver = useCallback(() => {
     const observer = new IntersectionObserver(
-      ([firstEntry]) => {
+      entries => {
+        console.log(entries, window.innerHeight);
+        const [firstEntry] = entries;
         if (firstEntry) {
           setActiveId(prevActiveId => {
             // 스크롤을 아래로 내리는 경우, 최근에 뷰에 보인 타이틀에 뷰의 위쪽으로 사라졌을 때 해당 타이틀을 옵저버가 감지하고 요소의 id를 반환
             if (firstEntry.boundingClientRect.top < 120) {
+              console.log('firstEntry.target.id ', firstEntry.target.id);
               return firstEntry.target.id;
             }
 
@@ -74,13 +77,13 @@ const useTableContents = (rawContent: string) => {
               ({ id }) => id === prevActiveId,
             );
 
+            console.log('activeIndex ', activeIndex);
+
             return activeIndex > 0 ? tableOfContents[activeIndex - 1].id : null;
           });
         }
       },
-      {
-        rootMargin: `${ROOT_MARGIN}px 0px -${window.innerHeight - ROOT_MARGIN}px 0px`,
-      }, // 요소가 뷰의 위쪽으로 스크롤당해 사라졌을 때 옵저버 감지를 트리거하기 위한 옵션
+      { rootMargin: `100px 0px -${window.innerHeight - 100}px 0px` }, // 요소가 뷰의 위쪽으로 스크롤당해 사라졌을 때 옵저버 감지를 트리거하기 위한 옵션
     );
 
     return observer;
