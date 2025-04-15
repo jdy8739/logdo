@@ -1,4 +1,3 @@
-import { Link } from 'gatsby';
 import useTableContents from '../../hooks/useTableOfContents';
 import {
   tocContainer,
@@ -6,9 +5,23 @@ import {
   tocList,
   tocItem,
 } from './TableOfContents.css';
+import { useCallback } from 'react';
 
 const TableOfContents = ({ rawContent }: { rawContent: string }) => {
   const { tableOfContents, activeId } = useTableContents(rawContent);
+
+  const scrollTo = useCallback((id: string) => {
+    const titleElement = document.getElementById(id);
+
+    if (titleElement) {
+      const y = titleElement.getBoundingClientRect().top + window.scrollY - 80;
+
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth',
+      });
+    }
+  }, []);
 
   return (
     <aside className={tocContainer}>
@@ -25,14 +38,22 @@ const TableOfContents = ({ rawContent }: { rawContent: string }) => {
                 key={`${id}-${index}`}
                 style={{
                   paddingLeft: `${depth * 5}px`,
-                  color: `rgba(0, 0, 0, ${isActive ? 1 : 1 - depth / 5})`,
-                  fontSize: `${15 - depth}px`,
-                  fontWeight: isActive ? 'bold' : 'normal',
+                  // color: `rgba(0, 0, 0, ${isActive ? 1 : 1 - depth / 5})`,
+                  // fontSize: `${15 - depth}px`,
+                  // fontWeight: isActive ? 'bold' : 'normal',
                 }}
               >
-                <Link to={`#${id}`} className={tocItem}>
+                <button
+                  className={tocItem}
+                  onClick={() => scrollTo(id)}
+                  style={{
+                    color: `rgba(0, 0, 0, ${isActive ? 1 : 1 - depth / 5})`,
+                    fontSize: `${15 - depth}px`,
+                    fontWeight: isActive ? 'bold' : 'normal',
+                  }}
+                >
                   {title}
-                </Link>
+                </button>
               </li>
             );
           })}
