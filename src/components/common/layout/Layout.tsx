@@ -11,20 +11,16 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const isScrollDone = useRef(false);
-
   useEffect(() => {
     if (hash) {
       setIsHeaderVisible(false);
 
       timeoutRef.current = setTimeout(() => {
-        isScrollDone.current = true;
+        timeoutRef.current = null;
       }, 1000);
     }
 
     return () => {
-      isScrollDone.current = false;
-
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
         timeoutRef.current = null;
@@ -34,9 +30,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
-      if (isScrollDone.current) {
+      if (!timeoutRef.current) {
         setIsHeaderVisible(true);
-        isScrollDone.current = false;
       }
     });
   }, []);
