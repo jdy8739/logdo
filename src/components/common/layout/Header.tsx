@@ -2,9 +2,12 @@ import { Link } from 'gatsby';
 import { title, header, iconContainer } from './Header.css';
 import { AiFillGithub, AiFillLinkedin, AiFillFileText } from 'react-icons/ai';
 
-const Header = () => {
+const Header = ({ isVisible }: { isVisible: boolean }) => {
   return (
-    <header className={header}>
+    <header
+      className={header}
+      style={{ visibility: isVisible ? 'visible' : 'hidden' }}
+    >
       <div>
         <h1 className={title}>
           <Link to="/">logDo</Link>
