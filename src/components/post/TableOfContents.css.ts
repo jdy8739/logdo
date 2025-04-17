@@ -32,6 +32,7 @@ const tocList = style({
 
 const tocItem = style({
   lineHeight: '1.5',
+  display: 'inline-block',
 });
 
 export { tocContainer, tocTitle, tocList, tocItem };
