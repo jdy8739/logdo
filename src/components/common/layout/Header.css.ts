@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-export const header = style({
+const header = style({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
@@ -10,9 +10,14 @@ export const header = style({
   position: 'sticky',
   top: 0,
   zIndex: 100,
+  transition: 'transform 0.3s ease',
 });
 
-export const title = style({
+const slideUp = style({
+  transform: 'translateY(-100%)',
+});
+
+const title = style({
   fontSize: '1.8rem',
   fontWeight: 'bold',
   color: '#333333',
@@ -24,9 +29,11 @@ export const title = style({
   },
 });
 
-export const iconContainer = style({
+const iconContainer = style({
   display: 'flex',
   gap: '1rem',
   alignItems: 'center',
   fontSize: '1.5rem',
 });
+
+export { header, slideUp, title, iconContainer };
