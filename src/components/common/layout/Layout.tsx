@@ -24,8 +24,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     }
 
     return () => {
-      setIsHeaderVisible(true);
-
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
         timeoutRef.current = null;
