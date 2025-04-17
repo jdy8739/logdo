@@ -13,14 +13,15 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     if (hash) {
-      setIsHeaderVisible(false);
-
       timeoutRef.current = setTimeout(() => {
+        setIsHeaderVisible(false);
         timeoutRef.current = null;
-      }, 1000);
+      }, 1500);
     }
 
     return () => {
+      setIsHeaderVisible(true);
+
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
         timeoutRef.current = null;
@@ -30,7 +31,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
-      if (!timeoutRef.current) {
+      if (timeoutRef.current === null) {
         setIsHeaderVisible(true);
       }
     });
