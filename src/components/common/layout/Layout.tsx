@@ -11,11 +11,15 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+  const lastScrollYRef = useRef(0);
+
   useEffect(() => {
     if (hash) {
       timeoutRef.current = setTimeout(() => {
         setIsHeaderVisible(false);
         timeoutRef.current = null;
+
+        lastScrollYRef.current = window.scrollY;
       }, 1500);
     }
 
@@ -25,6 +29,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
         timeoutRef.current = null;
+
+        lastScrollYRef.current = window.scrollY;
       }
     };
   }, [hash]);
@@ -32,14 +38,22 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     window.addEventListener('scroll', () => {
       if (timeoutRef.current === null) {
-        setIsHeaderVisible(true);
+        const currentScrollY = window.scrollY;
+
+        const deltaY = Math.abs(currentScrollY - lastScrollYRef.current);
+
+        if (deltaY > 70) {
+          setIsHeaderVisible(true);
+
+          lastScrollYRef.current = currentScrollY;
+        }
       }
     });
   }, []);
 
   return (
     <div className={layout}>
-      {isHeaderVisible && <Header />}
+      <Header isVisible={isHeaderVisible} />
       <main className={contents}>{children}</main>
       <Footer />
     </div>
