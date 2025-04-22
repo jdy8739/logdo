@@ -46,6 +46,12 @@ export default function Index({
     );
   }, [category, posts]);
 
+  const sortedPosts = useMemo(() => {
+    return [...filteredPosts].sort((a, b) => {
+      return new Date(b.date!).getTime() - new Date(a.date!).getTime();
+    });
+  }, [filteredPosts]);
+
   return (
     <>
       <Introduction />
@@ -54,7 +60,7 @@ export default function Index({
         categoryMap={categoryMap}
         handleCategoryChange={handleCategoryChange}
       />
-      <PostList posts={filteredPosts} />
+      <PostList posts={sortedPosts} />
     </>
   );
 }
