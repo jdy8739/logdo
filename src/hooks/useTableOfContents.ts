@@ -86,7 +86,7 @@ const useTableContents = (rawContent: string) => {
     const observer = createObserver();
 
     enrollObserver({
-      query: '#content > h1, #content > h2, #content >h3',
+      query: '#content > h1, #content > h2, #content > h3',
       callback: (element: Element) => observer.observe(element),
     });
 
