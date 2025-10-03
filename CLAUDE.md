@@ -124,6 +124,9 @@ src/
 
 ## Development Notes
 
+- Use **Node.js version 20** (Gatsby 5 supports Node 18 and 20, not Node 24+)
+  - Run `nvm use 20` before starting development
+  - See `.nvmrc` file for version specification
 - Use **pnpm** as package manager (see packageManager field in package.json)
 - **PrismJS theming**: Two imports required in `gatsby-browser.tsx`
   - `prismjs/themes/prism-tomorrow.min.css`: Base PrismJS theme with syntax colors
