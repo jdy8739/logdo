@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css';
 import { responsiveStyle } from '../../styles/responseive.css';
+import { themeVars } from '../../styles/theme.css';
 
 const postHeaderContainer = style({
   maxWidth: '1000px',
@@ -16,11 +17,13 @@ const postTitle = style({
   fontWeight: '700',
   marginBottom: '20px',
   lineHeight: '1.3',
-  borderBottom: '1px solid #eee',
+  borderBottom: `1px solid ${themeVars.color.border.primary}`,
+  color: themeVars.color.text.primary,
 });
 
 const postDate = style({
   fontSize: '14px',
+  color: themeVars.color.text.secondary,
 });
 
 const postHeaderContent = style({

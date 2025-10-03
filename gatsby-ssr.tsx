@@ -1,5 +1,6 @@
 import { GatsbySSR } from 'gatsby';
 import Layout from './src/components/common/layout/Layout';
+import { ThemeProvider } from './src/contexts/ThemeContext';
 
 const onRenderBody: GatsbySSR['onRenderBody'] = ({ setHeadComponents }) => {
   setHeadComponents([
@@ -18,7 +19,11 @@ const wrapPageElement: GatsbySSR['wrapPageElement'] = ({
 }: {
   element: React.ReactNode;
 }) => {
-  return <Layout>{element}</Layout>;
+  return (
+    <ThemeProvider>
+      <Layout>{element}</Layout>
+    </ThemeProvider>
+  );
 };
 
 export { wrapPageElement, onRenderBody };

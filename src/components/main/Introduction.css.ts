@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css';
 import { responsiveStyle } from '../../styles/responseive.css';
+import { themeVars } from '../../styles/theme.css';
 
 const introSection = style([
   {
@@ -23,7 +24,7 @@ const introSection = style([
 const profileImageWrapper = style({
   borderRadius: '50%',
   overflow: 'hidden',
-  boxShadow: '0 0 15px rgba(0, 0, 0, 0.1)',
+  boxShadow: `0 0 15px ${themeVars.color.border.primary}`,
   transition: 'transform 0.3s ease',
   ':hover': {
     transform: 'scale(1.05)',
@@ -39,12 +40,12 @@ const introContent = style({
 const introTitle = style({
   fontSize: '2rem',
   fontWeight: 'bold',
-  color: '#333',
+  color: themeVars.color.text.primary,
 });
 
 const introDescription = style({
   fontSize: '1.1rem',
-  color: '#666',
+  color: themeVars.color.text.secondary,
   lineHeight: '1.6',
 });
 

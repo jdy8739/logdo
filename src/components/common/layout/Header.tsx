@@ -1,6 +1,7 @@
 import { Link } from 'gatsby';
 import { title, header, iconContainer, slideUp } from './Header.css';
 import { AiFillGithub, AiFillLinkedin, AiFillFileText } from 'react-icons/ai';
+import ThemeToggle from '../ThemeToggle';
 
 const Header = ({ isVisible }: { isVisible: boolean }) => {
   return (
@@ -11,6 +12,7 @@ const Header = ({ isVisible }: { isVisible: boolean }) => {
         </h1>
       </div>
       <div className={iconContainer}>
+        <ThemeToggle />
         <span>
           <a href="https://github.com/jdy8739" target="_blank" rel="noreferrer">
             <AiFillGithub />

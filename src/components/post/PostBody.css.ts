@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css';
 import { responsiveStyle } from '../../styles/responseive.css';
+import { themeVars } from '../../styles/theme.css';
 
 const postBody = style([
   {
@@ -27,6 +28,7 @@ const postBodyContent = style({
   fontSize: '16px',
   lineHeight: '2',
   wordBreak: 'break-word',
+  color: themeVars.color.text.primary,
 });
 
 export { postBody, postBodyContent };

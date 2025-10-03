@@ -1,5 +1,10 @@
 import { useMemo } from 'react';
-import { categoryContainer, categoryItem } from './Category.css';
+import {
+  categoryContainer,
+  categoryItem,
+  categoryItemSelected,
+  categoryItemDefault,
+} from './Category.css';
 
 type Props = {
   category: string;
@@ -21,13 +26,8 @@ const Category = ({ category, categoryMap, handleCategoryChange }: Props) => {
         return (
           <button
             key={name}
-            className={categoryItem}
+            className={`${categoryItem} ${isSelected ? categoryItemSelected : categoryItemDefault}`}
             onClick={() => handleCategoryChange(name)}
-            style={{
-              backgroundColor: isSelected ? '#f5f5f5' : '#333333',
-              color: isSelected ? '#666666' : '#ffffff',
-              cursor: isSelected ? 'default' : 'pointer',
-            }}
           >
             <span>{name}</span>
             <span>{': '}</span>

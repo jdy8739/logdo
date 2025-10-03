@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css';
+import { themeVars } from '../../styles/theme.css';
 
 const categoryContainer = style({
   display: 'flex',
@@ -20,4 +21,21 @@ const categoryItem = style({
   },
 });
 
-export { categoryContainer, categoryItem };
+const categoryItemSelected = style({
+  backgroundColor: themeVars.color.background.secondary,
+  color: themeVars.color.text.secondary,
+  cursor: 'default',
+});
+
+const categoryItemDefault = style({
+  backgroundColor: themeVars.color.text.primary,
+  color: themeVars.color.background.primary,
+  cursor: 'pointer',
+});
+
+export {
+  categoryContainer,
+  categoryItem,
+  categoryItemSelected,
+  categoryItemDefault,
+};

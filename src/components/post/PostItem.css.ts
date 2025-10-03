@@ -1,16 +1,19 @@
 import { ComplexStyleRule, style } from '@vanilla-extract/css';
 import { responsiveStyle } from '../../styles/responseive.css';
+import { themeVars } from '../../styles/theme.css';
 
 const postArticle = style([
   {
     width: '320px',
     minHeight: '186px',
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+    boxShadow: `0 0 10px ${themeVars.color.border.primary}`,
     padding: '20px',
     boxSizing: 'border-box',
     transition: 'all 0.3s ease',
+    backgroundColor: themeVars.color.background.primary,
     ':hover': {
       transform: 'translateY(-5px)',
+      boxShadow: `0 5px 15px ${themeVars.color.border.secondary}`,
     },
   },
   responsiveStyle({
@@ -47,7 +50,7 @@ const ELLIPSIS_STYLE = {
 
 const postDescription = style({
   ...ELLIPSIS_STYLE,
-  color: '#ccc',
+  color: themeVars.color.text.tertiary,
   fontSize: '12px',
   fontWeight: '700',
   lineHeight: '1.2em',
@@ -60,16 +63,17 @@ const postTitle = style({
   fontWeight: '700',
   lineHeight: '1.2em',
   WebkitLineClamp: '1',
+  color: themeVars.color.text.primary,
 } as ComplexStyleRule);
 
 const postDate = style({
   fontSize: '12px',
-  color: '#ccc',
+  color: themeVars.color.text.tertiary,
 });
 
 const postCategory = style({
-  backgroundColor: '#eee',
-  color: '#333',
+  backgroundColor: themeVars.color.background.tertiary,
+  color: themeVars.color.text.secondary,
   padding: '5px 10px',
   borderRadius: '5px',
   fontStyle: 'italic',

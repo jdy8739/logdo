@@ -1,16 +1,17 @@
 import { style } from '@vanilla-extract/css';
+import { themeVars } from '../../../styles/theme.css';
 
 const header = style({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
   padding: '1rem 2rem',
-  backgroundColor: '#ffffff',
-  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+  backgroundColor: themeVars.color.background.primary,
+  boxShadow: `0 2px 4px ${themeVars.color.border.primary}`,
   position: 'sticky',
   top: 0,
   zIndex: 100,
-  transition: 'transform 0.3s ease',
+  transition: 'transform 0.3s ease, background-color 0.3s ease',
 });
 
 const slideUp = style({
@@ -20,12 +21,12 @@ const slideUp = style({
 const title = style({
   fontSize: '1.8rem',
   fontWeight: 'bold',
-  color: '#333333',
+  color: themeVars.color.text.primary,
   margin: 0,
   cursor: 'pointer',
   transition: 'color 0.2s ease',
   ':hover': {
-    color: '#666666',
+    color: themeVars.color.text.secondary,
   },
 });
 
