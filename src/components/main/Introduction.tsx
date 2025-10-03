@@ -25,7 +25,7 @@ const Introduction = () => {
         </p>
         <p className={introDescription}>
           게임 & 블록체인 코인, 토큰 플랫폼에서 GameFI 금융 도메인 서비스를
-          개발하고 있습니다.
+          개발하였으며, 현재는 Private Cloud 플랫폼 서비스를 개발하고 있습니다.
         </p>
       </div>
     </section>
