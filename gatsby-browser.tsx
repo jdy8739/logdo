@@ -1,6 +1,7 @@
 import { GatsbySSR } from 'gatsby';
 import Layout from './src/components/common/layout/Layout';
 import { ThemeProvider } from './src/contexts/ThemeContext';
+import 'prismjs/themes/prism-tomorrow.min.css';
 import './src/styles/prism-theme.css';
 import './src/styles/global.css.ts';
 
