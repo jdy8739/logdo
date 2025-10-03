@@ -78,13 +78,17 @@ Required variables in `.env` file:
 ### Component Structure
 
 ```
-src/components/
-├── common/
-│   ├── layout/          # Header, Footer, Layout (applied via wrapPageElement in gatsby-browser/ssr)
-│   ├── content/         # Code, CodeBlock (PrismJS integration)
-│   └── Seo.tsx         # SEO head tags
-├── main/               # Category, Introduction (for main page)
-└── post/               # PostHeader, PostBody, PostItem, PostList, TableOfContents, Comments
+src/
+├── components/
+│   ├── common/
+│   │   ├── layout/          # Header, Footer, Layout (applied via wrapPageElement in gatsby-browser/ssr)
+│   │   ├── content/         # Code, CodeBlock (PrismJS integration)
+│   │   ├── ThemeToggle.tsx  # Theme mode switcher (light/dark/system)
+│   │   └── Seo.tsx          # SEO head tags
+│   ├── main/                # Category, Introduction (for main page)
+│   └── post/                # PostHeader, PostBody, PostItem, PostList, TableOfContents, Comments
+└── contexts/
+    └── ThemeContext.tsx     # Theme state management with localStorage & OS sync
 ```
 
 ### Styling
@@ -92,6 +96,17 @@ src/components/
 - Type-safe CSS-in-TS implementation using Vanilla Extract (`.css.ts` files)
 - `src/styles/responsive.css.ts`: Responsive media query definitions
 - Component-specific CSS files co-located in same directory (e.g., `PostBody.tsx` ↔ `PostBody.css.ts`)
+
+#### Dark Mode Theming
+
+- Theme system with 3 modes: **light**, **dark**, **system** (syncs with OS preference)
+- CSS variable-based theming using `createGlobalThemeContract` from Vanilla Extract
+- Core theme files:
+  - `src/styles/theme.css.ts`: Theme contract and color tokens for light/dark modes
+  - `src/styles/global.css.ts`: Global styles with theme variables
+  - `src/styles/prism-theme.css`: PrismJS syntax highlighting themes for light/dark
+- Theme applied via `[data-theme="light|dark"]` attribute on `<html>` element
+- ThemeContext manages state, localStorage persistence, and OS theme synchronization
 
 ### SEO Plugins
 
@@ -110,7 +125,10 @@ src/components/
 ## Development Notes
 
 - Use **pnpm** as package manager (see packageManager field in package.json)
-- PrismJS theme globally imported in `gatsby-browser.tsx` ('prism-tomorrow.min.css')
+- **PrismJS theming**: Two imports required in `gatsby-browser.tsx`
+  - `prismjs/themes/prism-tomorrow.min.css`: Base PrismJS theme with syntax colors
+  - `./src/styles/prism-theme.css`: Custom overrides for light/dark mode switching
+  - Both imports must coexist - removing either will break code highlighting
 - Layout component automatically applied to all pages via `wrapPageElement` in gatsby-browser/ssr
 - May need to restart dev server after Contentful content changes
 
@@ -131,4 +149,8 @@ export { helperFunction, UtilityType };
 ```
 
 ### Files to Never Modify
-- **NEVER** modify `gatsby-browser.tsx` PrismJS imports - both `prismjs/themes/prism-tomorrow.min.css` and `./src/styles/prism-theme.css` must remain
+
+**gatsby-browser.tsx** - PrismJS imports (lines 4-5):
+- **NEVER** remove `import 'prismjs/themes/prism-tomorrow.min.css'` - provides base syntax highlighting colors
+- **NEVER** remove `import './src/styles/prism-theme.css'` - applies light/dark mode overrides
+- Both imports must remain for proper code block theming across all theme modes
