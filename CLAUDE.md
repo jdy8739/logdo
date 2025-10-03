@@ -113,3 +113,22 @@ src/components/
 - PrismJS theme globally imported in `gatsby-browser.tsx` ('prism-tomorrow.min.css')
 - Layout component automatically applied to all pages via `wrapPageElement` in gatsby-browser/ssr
 - May need to restart dev server after Contentful content changes
+
+## Code Style Guidelines
+
+### Export Conventions
+- **Main components/hooks**: Use `export default`
+- **Sub-components, utilities, types**: Use named exports `export {}`
+
+Example:
+```typescript
+// Main component - default export
+const MyComponent = () => { ... }
+export default MyComponent;
+
+// Sub utilities - named exports
+export { helperFunction, UtilityType };
+```
+
+### Files to Never Modify
+- **NEVER** modify `gatsby-browser.tsx` PrismJS imports - both `prismjs/themes/prism-tomorrow.min.css` and `./src/styles/prism-theme.css` must remain
