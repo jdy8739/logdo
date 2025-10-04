@@ -5,7 +5,7 @@ import PostBody from '../components/post/PostBody';
 import RENDER_OPTIONS from '../const/render-options';
 import SEO from '../components/common/Seo';
 
-export default function Post({
+function Post({
   data: { contentfulBlogPost: post },
 }: PostDetail) {
   return (
@@ -16,7 +16,7 @@ export default function Post({
   );
 }
 
-export const query = graphql`
+const query = graphql`
   query PostPage($slug: String!) {
     contentfulBlogPost(slug: { eq: $slug }) {
       title
@@ -46,7 +46,7 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC<Queries.PostPageQuery> = ({
+const Head: HeadFC<Queries.PostPageQuery> = ({
   data: { contentfulBlogPost },
 }: HeadProps<PostDetail>) => (
   <SEO
@@ -56,3 +56,6 @@ export const Head: HeadFC<Queries.PostPageQuery> = ({
     image={contentfulBlogPost?.thumbnail?.url ?? ''}
   />
 );
+
+export default Post;
+export { query, Head };
