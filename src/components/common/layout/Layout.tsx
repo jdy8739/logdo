@@ -34,7 +34,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   }, [hash]);
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    const handleScroll = () => {
       if (timeoutRef.current === null) {
         const currentScrollY = window.scrollY;
 
@@ -46,7 +46,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           lastScrollYRef.current = currentScrollY;
         }
       }
-    });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
