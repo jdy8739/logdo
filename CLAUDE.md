@@ -140,8 +140,9 @@ src/
 ### Export Conventions
 - **Main components/hooks**: Use `export default`
 - **Sub-components, utilities, types**: Use named exports `export {}`
+- **Exception**: Files in `src/pages/` must use inline exports (`export default function`, `export const query`, `export const Head`) for Gatsby's File System Route API
 
-Example:
+Example (for non-page files):
 ```typescript
 // Main component - default export
 const MyComponent = () => { ... }
@@ -149,6 +150,14 @@ export default MyComponent;
 
 // Sub utilities - named exports
 export { helperFunction, UtilityType };
+```
+
+Exception example (for `src/pages/*.tsx` files only):
+```typescript
+// Gatsby page files MUST use inline exports
+export default function PageName() { ... }
+export const query = graphql`...`;
+export const Head: HeadFC = () => <SEO />;
 ```
 
 ### Files to Never Modify
