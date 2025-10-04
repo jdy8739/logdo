@@ -6,7 +6,6 @@ const NotFoundPage: React.FC<PageProps> = () => {
   return <NotFound />;
 };
 
-const Head: HeadFC = () => <SEO />;
-
 export default NotFoundPage;
-export { Head };
+
+export const Head: HeadFC = () => <SEO />;

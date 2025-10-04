@@ -6,7 +6,7 @@ import Category from '../components/main/Category';
 import { useMemo, useState, useCallback } from 'react';
 import SEO from '../components/common/Seo';
 
-function Index({
+export default function Index({
   data: {
     allContentfulBlogPost: { nodes: posts },
   },
@@ -65,7 +65,7 @@ function Index({
   );
 }
 
-const query = graphql`
+export const query = graphql`
   query IndexPage {
     allContentfulBlogPost {
       nodes {
@@ -84,7 +84,4 @@ const query = graphql`
   }
 `;
 
-const Head: HeadFC = () => <SEO />;
-
-export default Index;
-export { query, Head };
+export const Head: HeadFC = () => <SEO />;
