@@ -124,6 +124,9 @@ src/
 
 ## Development Notes
 
+- Use **Node.js version 20** (Gatsby 5 supports Node 18 and 20, not Node 24+)
+  - Run `nvm use 20` before starting development
+  - See `.nvmrc` file for version specification
 - Use **pnpm** as package manager (see packageManager field in package.json)
 - **PrismJS theming**: Two imports required in `gatsby-browser.tsx`
   - `prismjs/themes/prism-tomorrow.min.css`: Base PrismJS theme with syntax colors
@@ -137,8 +140,9 @@ src/
 ### Export Conventions
 - **Main components/hooks**: Use `export default`
 - **Sub-components, utilities, types**: Use named exports `export {}`
+- **Exception**: Files in `src/pages/` must use inline exports (`export default function`, `export const query`, `export const Head`) for Gatsby's File System Route API
 
-Example:
+Example (for non-page files):
 ```typescript
 // Main component - default export
 const MyComponent = () => { ... }
@@ -146,6 +150,14 @@ export default MyComponent;
 
 // Sub utilities - named exports
 export { helperFunction, UtilityType };
+```
+
+Exception example (for `src/pages/*.tsx` files only):
+```typescript
+// Gatsby page files MUST use inline exports
+export default function PageName() { ... }
+export const query = graphql`...`;
+export const Head: HeadFC = () => <SEO />;
 ```
 
 ### Files to Never Modify

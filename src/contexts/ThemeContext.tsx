@@ -27,7 +27,7 @@ const getStoredTheme = (): ThemeMode => {
   return 'system';
 };
 
-export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [themeMode, setThemeModeState] = useState<ThemeMode>('system');
   const [effectiveTheme, setEffectiveTheme] = useState<EffectiveTheme>('light');
 
@@ -77,10 +77,12 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export const useTheme = () => {
+const useTheme = () => {
   const context = useContext(ThemeContext);
   if (context === undefined) {
     throw new Error('useTheme must be used within a ThemeProvider');
   }
   return context;
 };
+
+export { ThemeProvider, useTheme };

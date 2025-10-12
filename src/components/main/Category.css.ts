@@ -22,14 +22,14 @@ const categoryItem = style({
 });
 
 const categoryItemSelected = style({
-  backgroundColor: themeVars.color.background.secondary,
-  color: themeVars.color.text.secondary,
+  backgroundColor: themeVars.color.background.tertiary,
+  color: themeVars.color.text.primary,
   cursor: 'default',
 });
 
 const categoryItemDefault = style({
-  backgroundColor: themeVars.color.text.primary,
-  color: themeVars.color.background.primary,
+  backgroundColor: themeVars.color.background.secondary,
+  color: themeVars.color.text.secondary,
   cursor: 'pointer',
 });
 
