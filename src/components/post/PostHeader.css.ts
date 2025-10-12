@@ -27,7 +27,7 @@ const postDate = style({
 });
 
 const postHeaderContent = style({
-  padding: '30px',
+  padding: '0.7rem',
   fontSize: '16px',
   lineHeight: '1.8',
   position: 'absolute',

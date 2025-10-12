@@ -11,7 +11,7 @@ const notFoundContainer = style({
 
 const notFoundTitle = style([
   {
-    fontSize: '30px',
+    fontSize: '0.7rem',
     fontWeight: '700',
   },
   responsiveStyle({

@@ -18,22 +18,22 @@ const BLOCK_CLASSNAMES: Readonly<Partial<Record<BLOCKS, string>>> = {
   [BLOCKS.HEADING_3]: style({
     fontSize: '20px',
     fontWeight: '700',
-    marginBottom: '30px',
+    marginBottom: '0.7rem',
     color: themeVars.color.text.primary,
   }),
   [BLOCKS.OL_LIST]: style({
     marginLeft: '20px',
-    padding: '30px 0',
+    padding: '0.7rem 0',
     color: themeVars.color.text.primary,
   }),
   [BLOCKS.UL_LIST]: style({
     marginLeft: '20px',
-    padding: '30px 0',
+    padding: '0.7rem 0',
     color: themeVars.color.text.primary,
   }),
   [BLOCKS.HR]: style({
     border: `1px solid ${themeVars.color.border.primary}`,
-    margin: '80px 0',
+    margin: '3.5rem 0',
   }),
   [BLOCKS.QUOTE]: style({
     margin: '20px 0',
@@ -45,7 +45,7 @@ const BLOCK_CLASSNAMES: Readonly<Partial<Record<BLOCKS, string>>> = {
   }),
   [BLOCKS.EMBEDDED_ASSET]: style({
     width: '100%',
-    margin: '30px 0',
+    margin: '0.7rem 0',
   }),
 };
 
