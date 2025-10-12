@@ -60,6 +60,8 @@ const SEO = ({ title, description, pathname, image, children }: SEOProps) => {
       <meta name="twitter:site" content={siteMetadata.siteUrl} />
       <meta name="twitter:creator" content="jdy8739" />
 
+      <link rel="icon" type="image/svg+xml" href="/blog-logo-favicon.svg" />
+
       {children}
     </>
   );
