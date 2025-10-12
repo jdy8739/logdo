@@ -3,32 +3,32 @@ import { responsiveStyle } from '../../styles/responseive.css';
 import { themeVars } from '../../styles/theme.css';
 
 const postHeaderContainer = style({
-  maxWidth: '1000px',
+  maxWidth: '62.5rem',
   margin: '0 auto',
   position: 'relative',
 });
 
 const postHeader = style({
-  marginBottom: '40px',
+  marginBottom: '2.5rem',
 });
 
 const postTitle = style({
-  fontSize: '32px',
+  fontSize: '2rem',
   fontWeight: '700',
-  marginBottom: '20px',
+  marginBottom: '1.25rem',
   lineHeight: '1.3',
   borderBottom: `1px solid ${themeVars.color.border.primary}`,
   color: themeVars.color.text.primary,
 });
 
 const postDate = style({
-  fontSize: '14px',
+  fontSize: '0.875rem',
   color: themeVars.color.text.secondary,
 });
 
 const postHeaderContent = style({
   padding: '0.7rem',
-  fontSize: '16px',
+  fontSize: '1rem',
   lineHeight: '1.8',
   position: 'absolute',
   boxSizing: 'border-box',
@@ -46,7 +46,7 @@ const postHeaderContentInner = style({
   color: 'white',
   display: 'flex',
   flexDirection: 'column',
-  gap: '5px',
+  gap: '0.3125rem',
 });
 
 const postCategoryContainer = style([
@@ -59,12 +59,12 @@ const postCategoryContainer = style([
 
 const postCategory = style({
   color: '#eee',
-  borderRadius: '5px',
+  borderRadius: '0.3125rem',
   fontStyle: 'italic',
-  fontSize: '12px',
+  fontSize: '0.75rem',
   selectors: {
     '&:not(:last-child)': {
-      marginRight: '15px',
+      marginRight: '0.9375rem',
     },
   },
 });

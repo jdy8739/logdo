@@ -7,15 +7,15 @@ const footer = style([
     display: 'grid',
     placeItems: 'center',
     marginTop: 'auto',
-    padding: '50px 0',
-    fontSize: '15px',
+    padding: '3.125rem 0',
+    fontSize: '0.9375rem',
     textAlign: 'center',
     lineHeight: '1.5',
     color: themeVars.color.text.secondary,
   },
   responsiveStyle({
     tablet: {
-      fontSize: '12px',
+      fontSize: '0.75rem',
     },
   }),
 ]);

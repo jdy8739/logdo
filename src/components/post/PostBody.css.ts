@@ -6,11 +6,11 @@ const postBody = style([
   {
     position: 'relative',
     display: 'grid',
-    gridTemplateColumns: '1fr 220px',
-    gridGap: '30px',
+    gridTemplateColumns: '1fr 13.75rem',
+    gridGap: '1.875rem',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    paddingTop: '100px',
+    paddingTop: '6.25rem',
   },
   responsiveStyle({
     mobile: {
@@ -24,8 +24,8 @@ const postBodyContent = style({
   overflow: 'auto',
   display: 'flex',
   flexDirection: 'column',
-  gap: '10px',
-  fontSize: '16px',
+  gap: '0.625rem',
+  fontSize: '1rem',
   lineHeight: '2',
   wordBreak: 'break-word',
   color: themeVars.color.text.primary,

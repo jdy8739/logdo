@@ -4,30 +4,30 @@ import { themeVars } from '../../styles/theme.css';
 
 const BLOCK_CLASSNAMES: Readonly<Partial<Record<BLOCKS, string>>> = {
   [BLOCKS.HEADING_1]: style({
-    fontSize: '30px',
+    fontSize: '1.875rem',
     fontWeight: '700',
-    marginBottom: '40px',
+    marginBottom: '2.5rem',
     color: themeVars.color.text.primary,
   }),
   [BLOCKS.HEADING_2]: style({
-    fontSize: '25px',
+    fontSize: '1.5625rem',
     fontWeight: '700',
-    marginBottom: '35px',
+    marginBottom: '2.1875rem',
     color: themeVars.color.text.primary,
   }),
   [BLOCKS.HEADING_3]: style({
-    fontSize: '20px',
+    fontSize: '1.25rem',
     fontWeight: '700',
     marginBottom: '0.7rem',
     color: themeVars.color.text.primary,
   }),
   [BLOCKS.OL_LIST]: style({
-    marginLeft: '20px',
+    marginLeft: '1.25rem',
     padding: '0.7rem 0',
     color: themeVars.color.text.primary,
   }),
   [BLOCKS.UL_LIST]: style({
-    marginLeft: '20px',
+    marginLeft: '1.25rem',
     padding: '0.7rem 0',
     color: themeVars.color.text.primary,
   }),
@@ -36,9 +36,9 @@ const BLOCK_CLASSNAMES: Readonly<Partial<Record<BLOCKS, string>>> = {
     margin: '3.5rem 0',
   }),
   [BLOCKS.QUOTE]: style({
-    margin: '20px 0',
-    padding: '20px',
-    borderRadius: '8px',
+    margin: '1.25rem 0',
+    padding: '1.25rem',
+    borderRadius: '0.5rem',
     background: themeVars.color.background.secondary,
     color: themeVars.color.text.primary,
     borderLeft: `4px solid ${themeVars.color.border.secondary}`,

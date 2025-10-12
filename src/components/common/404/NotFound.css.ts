@@ -5,8 +5,8 @@ const notFoundContainer = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  margin: '150px 0',
-  gap: '10px',
+  margin: '9.375rem 0',
+  gap: '0.625rem',
 });
 
 const notFoundTitle = style([
@@ -16,28 +16,28 @@ const notFoundTitle = style([
   },
   responsiveStyle({
     tablet: {
-      fontSize: '25px',
+      fontSize: '1.5625rem',
     },
   }),
 ]);
 
 const notFoundDescription = style([
   {
-    marginTop: '10px',
-    fontSize: '20px',
+    marginTop: '0.625rem',
+    fontSize: '1.25rem',
     fontWeight: '300',
   },
   responsiveStyle({
     tablet: {
-      fontSize: '18px',
+      fontSize: '1.125rem',
     },
   }),
 ]);
 
 const notFoundLink = style([
   {
-    marginTop: '30px',
-    fontSize: '15px',
+    marginTop: '1.875rem',
+    fontSize: '0.9375rem',
     color: 'inherit',
   },
 ]);

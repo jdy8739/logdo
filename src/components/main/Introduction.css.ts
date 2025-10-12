@@ -6,7 +6,7 @@ const introSection = style([
   {
     display: 'flex',
     alignItems: 'center',
-    gap: '60px',
+    gap: '3.75rem',
   },
   responsiveStyle({
     desktop: {
@@ -15,8 +15,8 @@ const introSection = style([
     },
     mobile: {
       flexDirection: 'column',
-      padding: '40px 20px',
-      gap: '30px',
+      padding: '2.5rem 1.25rem',
+      gap: '1.875rem',
     },
   }),
 ]);
@@ -24,7 +24,7 @@ const introSection = style([
 const profileImageWrapper = style({
   borderRadius: '50%',
   overflow: 'hidden',
-  boxShadow: `0 0 15px ${themeVars.color.border.primary}`,
+  boxShadow: `0 0 0.9375rem ${themeVars.color.border.primary}`,
   transition: 'transform 0.3s ease',
   ':hover': {
     transform: 'scale(1.05)',
@@ -34,7 +34,7 @@ const profileImageWrapper = style({
 const introContent = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '20px',
+  gap: '1.25rem',
 });
 
 const introTitle = style({

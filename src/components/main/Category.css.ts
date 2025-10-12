@@ -4,20 +4,20 @@ import { themeVars } from '../../styles/theme.css';
 const categoryContainer = style({
   display: 'flex',
   flexWrap: 'wrap',
-  gap: '10px',
-  padding: '20px 0',
+  gap: '0.625rem',
+  padding: '1.25rem 0',
 });
 
 const categoryItem = style({
-  padding: '8px 16px',
+  padding: '0.5rem 1rem',
   border: 'none',
-  borderRadius: '20px',
+  borderRadius: '1.25rem',
   fontSize: '0.9rem',
   fontWeight: '500',
   transition: 'all 0.2s ease',
   ':hover': {
     opacity: 0.9,
-    transform: 'translateY(-1px)',
+    transform: 'translateY(-0.0625rem)',
   },
 });
 

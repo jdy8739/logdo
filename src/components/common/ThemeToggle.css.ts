@@ -3,20 +3,20 @@ import { themeVars } from '../../styles/theme.css';
 
 export const toggleButton = style({
   display: 'flex',
-  gap: '8px',
+  gap: '0.5rem',
   alignItems: 'center',
 });
 
 export const iconButton = style({
   background: 'transparent',
   border: `1px solid ${themeVars.color.border.primary}`,
-  borderRadius: '6px',
-  padding: '8px',
+  borderRadius: '0.375rem',
+  padding: '0.5rem',
   cursor: 'pointer',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  fontSize: '18px',
+  fontSize: '1.125rem',
   color: themeVars.color.text.secondary,
   transition: 'all 0.2s ease',
 

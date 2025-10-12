@@ -4,21 +4,21 @@ import { themeVars } from '../../styles/theme.css';
 
 const postArticle = style([
   {
-    width: '320px',
-    minHeight: '186px',
-    boxShadow: `0 0 10px ${themeVars.color.border.primary}`,
-    padding: '20px',
+    width: '20rem',
+    minHeight: '11.625rem',
+    boxShadow: `0 0 0.625rem ${themeVars.color.border.primary}`,
+    padding: '1.25rem',
     boxSizing: 'border-box',
     transition: 'all 0.3s ease',
     backgroundColor: themeVars.color.background.primary,
     ':hover': {
-      transform: 'translateY(-5px)',
-      boxShadow: `0 5px 15px ${themeVars.color.border.secondary}`,
+      transform: 'translateY(-0.3125rem)',
+      boxShadow: `0 0.3125rem 0.9375rem ${themeVars.color.border.secondary}`,
     },
   },
   responsiveStyle({
     desktop: {
-      width: 'calc(50% - 10px)',
+      width: 'calc(50% - 0.625rem)',
     },
     mobile: {
       width: '100%',
@@ -28,7 +28,7 @@ const postArticle = style([
 
 const postLink = style({
   display: 'flex',
-  gap: '15px',
+  gap: '0.9375rem',
   flexDirection: 'column',
   justifyContent: 'space-between',
 });
@@ -36,7 +36,7 @@ const postLink = style({
 const postTitleWrapper = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '8px',
+  gap: '0.5rem',
 });
 
 /** 말줄임 표시를 위한 스타일 */
@@ -51,7 +51,7 @@ const ELLIPSIS_STYLE = {
 const postDescription = style({
   ...ELLIPSIS_STYLE,
   color: themeVars.color.text.tertiary,
-  fontSize: '12px',
+  fontSize: '0.75rem',
   fontWeight: '700',
   lineHeight: '1.2em',
   WebkitLineClamp: '2',
@@ -59,7 +59,7 @@ const postDescription = style({
 
 const postTitle = style({
   ...ELLIPSIS_STYLE,
-  fontSize: '18px',
+  fontSize: '1.125rem',
   fontWeight: '700',
   lineHeight: '1.2em',
   WebkitLineClamp: '1',
@@ -67,20 +67,20 @@ const postTitle = style({
 } as ComplexStyleRule);
 
 const postDate = style({
-  fontSize: '12px',
+  fontSize: '0.75rem',
   color: themeVars.color.text.tertiary,
 });
 
 const postCategory = style({
   backgroundColor: themeVars.color.background.tertiary,
   color: themeVars.color.text.secondary,
-  padding: '5px 10px',
-  borderRadius: '5px',
+  padding: '0.3125rem 0.625rem',
+  borderRadius: '0.3125rem',
   fontStyle: 'italic',
-  fontSize: '12px',
+  fontSize: '0.75rem',
   selectors: {
     '&:not(:last-child)': {
-      marginRight: '5px',
+      marginRight: '0.3125rem',
     },
   },
 });
