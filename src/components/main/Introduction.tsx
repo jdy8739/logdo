@@ -21,11 +21,10 @@ const Introduction = () => {
       <div className={introContent}>
         <h2 className={introTitle}>정도영 Web FE developer</h2>
         <p className={introDescription}>
-          안녕하세요. 웹 프론트엔드 개발자 정도영입니다.
+          게임, 블록체인 금융 서비스를 거쳐 현재는 클라우드 플랫폼을 개발하고 있습니다.
         </p>
         <p className={introDescription}>
-          게임 & 블록체인 코인, 토큰 플랫폼에서 GameFI 금융 도메인 서비스를
-          개발하였으며, 현재는 Private Cloud 플랫폼 서비스를 개발하고 있습니다.
+          AI를 잘 쓰는 개발자가 되되, 사람만이 줄 수 있는 가치를 놓치지 않으려 합니다.
         </p>
       </div>
     </section>
