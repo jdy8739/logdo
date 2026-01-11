@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css';
 import { themeVars } from '../../../styles/theme.css';
+import { responsiveStyle } from '../../../styles/responseive.css';
 
 const header = style({
   display: 'flex',
@@ -12,6 +13,12 @@ const header = style({
   top: 0,
   zIndex: 100,
   transition: 'transform 0.3s ease, background-color 0.3s ease',
+  ...responsiveStyle({
+    mobile: {
+      padding: '1rem',
+      gap: '0.5rem',
+    },
+  }),
 });
 
 const slideUp = style({
@@ -28,6 +35,30 @@ const title = style({
   ':hover': {
     color: themeVars.color.text.secondary,
   },
+  ...responsiveStyle({
+    mobile: {
+      fontSize: '1.5rem',
+    },
+  }),
+});
+
+const topRow = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '1rem',
+});
+
+const socialLinksContainer = style({
+  display: 'flex',
+  gap: '1rem',
+  alignItems: 'center',
+  fontSize: '1.5rem',
+  ...responsiveStyle({
+    mobile: {
+      gap: '0.75rem',
+      fontSize: '1.3rem',
+    },
+  }),
 });
 
 const iconContainer = style({
@@ -35,6 +66,12 @@ const iconContainer = style({
   gap: '1rem',
   alignItems: 'center',
   fontSize: '1.5rem',
+  ...responsiveStyle({
+    mobile: {
+      justifyContent: 'center',
+      flexBasis: '100%',
+    },
+  }),
 });
 
-export { header, slideUp, title, iconContainer };
+export { header, slideUp, title, topRow, socialLinksContainer, iconContainer };

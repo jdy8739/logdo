@@ -1,17 +1,17 @@
 import { Link } from 'gatsby';
-import { title, header, iconContainer, slideUp } from './Header.css';
+import { title, header, topRow, socialLinksContainer, slideUp } from './Header.css';
 import { AiFillGithub, AiFillLinkedin, AiFillFileText } from 'react-icons/ai';
 import ThemeToggle from '../ThemeToggle';
 
 const Header = ({ isVisible }: { isVisible: boolean }) => {
   return (
     <header className={`${header} ${isVisible ? '' : slideUp}`}>
-      <div>
+      <div className={topRow}>
         <h1 className={title}>
           <Link to="/">logDo</Link>
         </h1>
       </div>
-      <div className={iconContainer}>
+      <div className={socialLinksContainer}>
         <ThemeToggle />
         <span>
           <a href="https://github.com/jdy8739" target="_blank" rel="noreferrer">
