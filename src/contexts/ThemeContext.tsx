@@ -28,17 +28,15 @@ const getStoredTheme = (): ThemeMode => {
 };
 
 const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [themeMode, setThemeModeState] = useState<ThemeMode>('system');
-  const [effectiveTheme, setEffectiveTheme] = useState<EffectiveTheme>('light');
-
-  // Initialize theme on mount
-  useEffect(() => {
+  const [themeMode, setThemeModeState] = useState<ThemeMode>(() => getStoredTheme());
+  const [effectiveTheme, setEffectiveTheme] = useState<EffectiveTheme>(() => {
     const storedTheme = getStoredTheme();
-    setThemeModeState(storedTheme);
+    return storedTheme === 'system' ? getSystemTheme() : storedTheme;
+  });
 
-    const effective = storedTheme === 'system' ? getSystemTheme() : storedTheme;
-    setEffectiveTheme(effective);
-    document.documentElement.setAttribute('data-theme', effective);
+  // Initialize theme attribute on mount
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', effectiveTheme);
   }, []);
 
   // Update effective theme when themeMode changes
