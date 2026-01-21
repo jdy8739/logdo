@@ -15,7 +15,9 @@ const THEME_STORAGE_KEY = 'theme';
 
 const getSystemTheme = (): EffectiveTheme => {
   if (typeof window === 'undefined') return 'light';
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  return window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light';
 };
 
 const getStoredTheme = (): ThemeMode => {
@@ -28,16 +30,11 @@ const getStoredTheme = (): ThemeMode => {
 };
 
 const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [themeMode, setThemeModeState] = useState<ThemeMode>(() => getStoredTheme());
+  const [themeMode, setThemeModeState] = useState<ThemeMode>(getStoredTheme);
   const [effectiveTheme, setEffectiveTheme] = useState<EffectiveTheme>(() => {
     const storedTheme = getStoredTheme();
     return storedTheme === 'system' ? getSystemTheme() : storedTheme;
   });
-
-  // Initialize theme attribute on mount
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', effectiveTheme);
-  }, []);
 
   // Update effective theme when themeMode changes
   useEffect(() => {
