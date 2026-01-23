@@ -25,11 +25,14 @@ const contents = style([
     margin: '5rem 0',
     display: 'flex',
     flexDirection: 'column',
-    gap: '5rem',
+    gap: '2.5rem',
   },
   responsiveStyle({
     desktop: {
-      margin: '3.125rem 0',
+      margin: '2.125rem 0',
+    },
+    mobile: {
+      gap: '1.5rem',
     },
   }),
 ]);

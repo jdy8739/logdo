@@ -15,7 +15,7 @@ const introSection = style([
     },
     mobile: {
       flexDirection: 'column',
-      padding: '2.5rem 1.25rem',
+      padding: '2.5rem 1.25rem 0.5rem',
       gap: '1.875rem',
     },
   }),
