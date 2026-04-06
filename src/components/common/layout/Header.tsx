@@ -29,7 +29,7 @@ const Header = ({ isVisible }: { isVisible: boolean }) => {
         </span>
         <span>
           <a
-            href="https://www.notion.so/FE-edd9d71558484a87b9944d5155b40089"
+            href="https://jdy8739.github.io/resume/"
             target="_blank"
             rel="noreferrer"
           >
